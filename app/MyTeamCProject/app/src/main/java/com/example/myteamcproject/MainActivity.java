@@ -36,7 +36,7 @@ import com.example.myteamcproject.Mypage.FragMyPage;
 import com.example.myteamcproject.Mypage.FrageMyAttr;
 import com.example.myteamcproject.ServiceCenter.FragService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
+//jesh
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
@@ -295,6 +295,8 @@ public class MainActivity extends AppCompatActivity {
         String[] permissions = {
                 Manifest.permission.ACCESS_NETWORK_STATE,
                 Manifest.permission.ACCESS_WIFI_STATE,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.CAMERA

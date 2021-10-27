@@ -1,13 +1,14 @@
 package com.example.myteamcproject.ATask;
 
+import static com.example.myteamcproject.Common.CommonMethod.explaylist;
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
-import static com.example.myteamcproject.Common.CommonMethod.qalist;
 
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.myteamcproject.Community.CommunityDTO;
+import com.example.myteamcproject.Common.CommonMethod;
+import com.example.myteamcproject.Exercise.UserExerciseDTO;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -27,26 +28,30 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QaATask extends AsyncTask<Void, Void, String> {
 
-    private static final String TAG = "QaATask";
+public class ExInsertATask extends AsyncTask<Void, Void, String> {
+    private static final String TAG = "ExInsertATask";
 
-    int reqC;
+    String reqC;
+    String id, e_name;
 
+    public ExInsertATask(String reqC) {
+        this.reqC = reqC;
+    }
+
+    public ExInsertATask(String reqC, String id, String e_name) {
+        this.reqC = reqC;
+        this.id = id;
+        this.e_name = e_name;
+    }
+
+    String state = "";
     // 반드시 선언해야 할것들 : 무조건 해야함 복,붙
     HttpClient httpClient;  // 클라이언트 객체
     HttpPost httpPost;      // 클라이언트에 붙일 본문
     HttpResponse httpResponse; // 서버에서의 응답
     HttpEntity httpEntity;  // 응답 내용
     String body;
-
-    public QaATask(){
-
-    }
-
-    public QaATask(int reqcode){
-        this.reqC = reqcode;
-    }//QaATask
 
     // doInBackground 하기전에 설정 및 초기화
     @Override
@@ -56,49 +61,55 @@ public class QaATask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... voids) {
-
         try {
             // MultipartEntityBuilder 생성 : 무조건 해야함
             MultipartEntityBuilder builder = MultipartEntityBuilder.create();
             builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
             builder.setCharset(Charset.forName("UTF-8"));
 
-            builder.addTextBody("category", "oto", ContentType.create("Multipart/related", "UTF-8"));
+            if (reqC.equals("exi")) {
+                builder.addTextBody("id", id, ContentType.create("Multipart/related", "UTF-8"));
+                builder.addTextBody("e_name", e_name, ContentType.create("Multipart/related", "UTF-8"));
 
+            }
 
             // 전송
-            String postURL = ipConfig + "/qalist.sc";
+            String postURL = "";
+            if (reqC.equals("exi")) {
+                postURL = ipConfig + "/androEXIlist.me";
+            }
 
             Log.d(TAG, "doInBackground: " + postURL);
             InputStream inputStream = null;
-            httpClient = AndroidHttpClient.newInstance("Q&A");
+            httpClient = AndroidHttpClient.newInstance("ExerciseI");
             httpPost = new HttpPost(postURL);
             httpPost.setEntity(builder.build());
             httpResponse = httpClient.execute(httpPost); // 응답
             body = EntityUtils.toString(httpResponse.getEntity());
 
             // 하나의 오브젝트 가져올때
-            qalist = (List<CommunityDTO>) readMessage(body);
+            //explaylist = (ArrayList<UserExerciseDTO>) readMessage(body);
 
         } catch (IOException e) {
             Log.d(TAG, "doInBackground: " + e.getStackTrace() + ", msg : " + e.getMessage());
-        }finally {
-            if(httpEntity != null){
+
+        } finally {
+            if (httpEntity != null) {
                 httpEntity = null;
-            }
-            if(httpResponse != null){
+            } 
+            if (httpResponse != null) {
                 httpResponse = null;
             }
-            if(httpPost != null){
+            if (httpPost != null) {
                 httpPost = null;
             }
-            if(httpClient != null){
+            if (httpClient != null) {
                 httpClient = null;
             }
 
         }
 
-        return null;
+        return "com";
     }
 
     // doInBackground 끝난후에 오는부분
@@ -109,23 +120,24 @@ public class QaATask extends AsyncTask<Void, Void, String> {
         Log.d("main:", "onPostExecute: result => " + result);
     }
 
-    public List<CommunityDTO> readMessage(String body) throws IOException {
-        List<CommunityDTO> list = new ArrayList<CommunityDTO>();
+    private List<UserExerciseDTO> readMessage(String body) throws IOException, JSONException {
+        List<UserExerciseDTO> list = new ArrayList<UserExerciseDTO>();
         try {
             JSONArray jArray = new JSONArray(body);
-            for(int i=0; i<jArray.length();i++) {
+            for (int i = 0; i < jArray.length(); i++) {
                 JSONObject row = jArray.getJSONObject(i);
-                CommunityDTO dto = new CommunityDTO();
-                dto.setC_numb(row.getInt("c_numb"));
-                dto.setC_title(row.getString("c_title"));
-                dto.setC_content(row.getString("c_content"));
-                dto.setC_writer(row.getString("c_writer"));
-                dto.setC_date(row.getString("c_date"));
-                dto.setC_readcount(row.getInt("c_readcount"));
-                dto.setC_filename(row.getString("c_filename"));
-                dto.setC_filepath(row.getString("c_filepath"));
-                dto.setC_category(row.getString("c_category"));
-                dto.setC_secret(row.getString("c_secret"));
+                UserExerciseDTO dto = new UserExerciseDTO();
+                if (reqC.equals("exi")) {
+                    dto.setId(row.getString("u_numb"));
+                    dto.setId(row.getString("id"));
+                    dto.setE_name(row.getString("e_name"));
+                    dto.setU_date(row.getString("u_date"));
+                    dto.setE_count(row.getInt("e_count"));
+                    dto.setU_calorie(row.getInt("u_calorie"));
+                    dto.setU_point(row.getInt("u_point"));
+                    dto.setU_complete(row.getString("u_complete"));
+                    dto.setIsChecked(row.getString("isChecked"));
+                }
                 list.add(dto);
             }
 
@@ -133,11 +145,11 @@ public class QaATask extends AsyncTask<Void, Void, String> {
             Log.d(TAG, "readMessage: " + e.getStackTrace() + ", msg : " + e.getMessage());
         }
 
-        // 핸들러에게 메시지를 요청
-        Log.d("main:", "readMessage: " + list.get(0).getC_title() );
-
         return list;
 
-    }
-
+    }//readMessage
 }
+
+
+
+
