@@ -38,10 +38,13 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import com.example.myteamcproject.Common.CommonMethod;
 =======
 >>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
 import com.example.myteamcproject.MainActivity;
+=======
+>>>>>>> main
 import com.example.myteamcproject.R;
 
 import java.io.IOException;
@@ -85,9 +88,6 @@ public class FragExStart extends Fragment implements View.OnClickListener {
     String mStrDelimiter = "\n";
     char mCharDelimiter = '\n';
 
-    MainActivity activity;
-
-
     public FragExStart() {
 
     }
@@ -95,8 +95,6 @@ public class FragExStart extends Fragment implements View.OnClickListener {
     // 생성자
     public FragExStart(FragmentManager fragmentManager) {
         this.fragmentManager = fragmentManager;
-
-        Log.d(TAG, "FragExStart: size2 => " + explaylist.size());
 
     }
 
@@ -110,14 +108,17 @@ public class FragExStart extends Fragment implements View.OnClickListener {
         Bundle bundle = getArguments();
 =======
 
+<<<<<<< HEAD
         activity = (MainActivity) getActivity();
 
 >>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
+=======
+        Bundle bundle = getArguments();
+>>>>>>> main
         ExerciseDTO dto = null;
-        if(activity.mBundle != null) {
-            Bundle bundle = activity.mBundle;
             pos = bundle.getInt("pos");
             dto = (ExerciseDTO) bundle.getSerializable("dto");
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         Log.d("TAG", "onCreateView: " + e_type);
@@ -136,17 +137,22 @@ public class FragExStart extends Fragment implements View.OnClickListener {
             Log.d("TAG", "onCreateView: " + e_type);
             activity.mBundle = null;
         }
+=======
+
+        Log.d("TAG", "onCreateView: " + e_type);
+>>>>>>> main
 
         // Fragment에서는 onClick을 사용할 수 없기때문에, 별도로 리스너를 달아서 클릭이벤트를 지정한다.
         TextView tv_etitle = viewGroup.findViewById(R.id.tv_etitle);
         TextView tv_time = viewGroup.findViewById(R.id.tv_time);
-        TextView tv_count = viewGroup.findViewById(R.id.tv_count);
-
         ImageView img_play = viewGroup.findViewById(R.id.img_play);
         ImageView img_pause = viewGroup.findViewById(R.id.img_pause);
         ImageView img_exs = viewGroup.findViewById(R.id.img_exs);
+<<<<<<< HEAD
 
 >>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
+=======
+>>>>>>> main
         img_play.setOnClickListener(this);
         img_pause.setOnClickListener(this);
         commonMethod = new CommonMethod();
@@ -167,13 +173,16 @@ public class FragExStart extends Fragment implements View.OnClickListener {
         if(!explaylist.isEmpty()){
             tv_etitle.setText(explaylist.get(pos).getE_name());
 <<<<<<< HEAD
+<<<<<<< HEAD
         }else{
             tv_etitle.setText("운동제목");
 =======
 >>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
+=======
+        }else{
+            tv_etitle.setText(explaylist.get(pos).getE_name());
+>>>>>>> main
         }
-
-        Log.d(TAG, "onCreateView: explaylistSize" + explaylist.size());
 
         String filepath = ipConfig + "/resources/"  + dto.getE_filepath() + dto.getE_filename();
         Log.d(TAG, "setDto: " + filepath);
@@ -190,12 +199,16 @@ public class FragExStart extends Fragment implements View.OnClickListener {
 
                 try{
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
                 if(explaylist.get(tonext + 1) != null){
                     Bundle bundle = new Bundle(); //번들을 통해 값 전달
 
                     bundle.putInt("pos", pos + 1);
                     bundle.putSerializable("dto", exlist.get(pos + 1));
                     FragExStart fragExStart = new FragExStart();   //FragExStart 선언
+<<<<<<< HEAD
                     FragRest fragRest = new FragRest();
                     fragRest.setArguments(bundle);    //번들을 FragExStart 로 보낼 준비
 
@@ -242,6 +255,17 @@ public class FragExStart extends Fragment implements View.OnClickListener {
 //                        activity.mBundle = null;
                     }
 >>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
+=======
+                    fragExStart.setArguments(bundle);    //번들을 FragExStart 로 보낼 준비
+
+                    fragmentManager = getParentFragmentManager();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+                    transaction.replace(R.id.main_frag, fragExStart).setTransition(transaction.TRANSIT_FRAGMENT_OPEN);
+
+                    transaction.commit();
+                }
+>>>>>>> main
                 } catch (IndexOutOfBoundsException e){
                     tv_time.setText("운동 끝");
                     FragHome fraghome = new FragHome();

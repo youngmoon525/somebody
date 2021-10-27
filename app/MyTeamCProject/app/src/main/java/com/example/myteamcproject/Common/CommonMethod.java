@@ -23,6 +23,7 @@ import com.example.myteamcproject.Exercise.UserExerciseDTO;
 import com.example.myteamcproject.Gift.CartDTO;
 import com.example.myteamcproject.Gift.GiftDTO;
 import com.example.myteamcproject.Member.MemberDTO;
+import com.example.myteamcproject.Mypage.AttendanceDTO;
 import com.example.myteamcproject.Mypage.FoodDTO;
 
 import java.io.File;
@@ -39,17 +40,22 @@ import java.util.UUID;
 public class CommonMethod {
     // 나의 ip를 선언해 놓는다.
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static String ipConfig = "http://192.168.0.3:80/project";
 
     private static final String TAG = "CommonMethod";
 =======
     public static String ipConfig = "http://192.168.0.45:80/project";
 >>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
+=======
+    public static String ipConfig = "http://221.156.48.92:8083/project";
+>>>>>>> main
 
     // 어느곳에서나 로그인이 되어 있는지 loginDTO를 static으로 생성
     public static MemberDTO loginDTO = null;
+
     public static List<ExerciseDTO> exlist = null;
-    public static ArrayList<UserExerciseDTO> explaylist = new ArrayList<>();
+    public static ArrayList<UserExerciseDTO> explaylist = null;
     public static int tonext = 0;
 
     public static List<CommunityDTO> colist = null;
@@ -65,6 +71,7 @@ public class CommonMethod {
     public static FoodDTO foodDTO = null;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static InputStream inputStream = null;
     public static String mStrDelimiter = "\n";
     public static OutputStream mOutputStream = null;
@@ -72,6 +79,10 @@ public class CommonMethod {
 
 =======
 >>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
+=======
+    public static List<AttendanceDTO> MyattList = null;
+
+>>>>>>> main
     // 이미지 로테이트 및 사이즈 변경
     public static Bitmap imageRotateAndResize(String path){ // state 1:insert, 2:update
         BitmapFactory.Options options = new BitmapFactory.Options();
