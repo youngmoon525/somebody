@@ -21,7 +21,7 @@ import java.util.List;
 
 public class CommonMethod {
     // 나의 ip를 선언해 놓는다.
-    public static String ipConfig = "http://221.156.48.92:8083/project";
+    public static String ipConfig = "http://192.168.0.176:80/project";
 
     // 어느곳에서나 로그인이 되어 있는지 loginDTO를 static으로 생성
     public static MemberDTO loginDTO = null;
