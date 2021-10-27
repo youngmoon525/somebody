@@ -37,7 +37,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
+<<<<<<< HEAD
 import com.example.myteamcproject.Common.CommonMethod;
+=======
+>>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
 import com.example.myteamcproject.MainActivity;
 import com.example.myteamcproject.R;
 
@@ -82,6 +85,9 @@ public class FragExStart extends Fragment implements View.OnClickListener {
     String mStrDelimiter = "\n";
     char mCharDelimiter = '\n';
 
+    MainActivity activity;
+
+
     public FragExStart() {
 
     }
@@ -90,6 +96,8 @@ public class FragExStart extends Fragment implements View.OnClickListener {
     public FragExStart(FragmentManager fragmentManager) {
         this.fragmentManager = fragmentManager;
 
+        Log.d(TAG, "FragExStart: size2 => " + explaylist.size());
+
     }
 
     @Nullable
@@ -97,11 +105,20 @@ public class FragExStart extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup viewGroup = (ViewGroup) inflater
                 .inflate(R.layout.frag_exs, container, false);
+<<<<<<< HEAD
         activity = (MainActivity) getActivity();
         Bundle bundle = getArguments();
+=======
+
+        activity = (MainActivity) getActivity();
+
+>>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
         ExerciseDTO dto = null;
+        if(activity.mBundle != null) {
+            Bundle bundle = activity.mBundle;
             pos = bundle.getInt("pos");
             dto = (ExerciseDTO) bundle.getSerializable("dto");
+<<<<<<< HEAD
 
         Log.d("TAG", "onCreateView: " + e_type);
         timers = new Timer();
@@ -115,6 +132,21 @@ public class FragExStart extends Fragment implements View.OnClickListener {
         img_pause = viewGroup.findViewById(R.id.img_pause);
         img_exs = viewGroup.findViewById(R.id.img_exs);
         tv_count = viewGroup.findViewById(R.id.tv_count);
+=======
+            Log.d("TAG", "onCreateView: " + e_type);
+            activity.mBundle = null;
+        }
+
+        // Fragment에서는 onClick을 사용할 수 없기때문에, 별도로 리스너를 달아서 클릭이벤트를 지정한다.
+        TextView tv_etitle = viewGroup.findViewById(R.id.tv_etitle);
+        TextView tv_time = viewGroup.findViewById(R.id.tv_time);
+        TextView tv_count = viewGroup.findViewById(R.id.tv_count);
+
+        ImageView img_play = viewGroup.findViewById(R.id.img_play);
+        ImageView img_pause = viewGroup.findViewById(R.id.img_pause);
+        ImageView img_exs = viewGroup.findViewById(R.id.img_exs);
+
+>>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
         img_play.setOnClickListener(this);
         img_pause.setOnClickListener(this);
         commonMethod = new CommonMethod();
@@ -134,9 +166,14 @@ public class FragExStart extends Fragment implements View.OnClickListener {
 
         if(!explaylist.isEmpty()){
             tv_etitle.setText(explaylist.get(pos).getE_name());
+<<<<<<< HEAD
         }else{
             tv_etitle.setText("운동제목");
+=======
+>>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
         }
+
+        Log.d(TAG, "onCreateView: explaylistSize" + explaylist.size());
 
         String filepath = ipConfig + "/resources/"  + dto.getE_filepath() + dto.getE_filename();
         Log.d(TAG, "setDto: " + filepath);
@@ -152,6 +189,7 @@ public class FragExStart extends Fragment implements View.OnClickListener {
             public void onFinish() {
 
                 try{
+<<<<<<< HEAD
                 if(explaylist.get(tonext + 1) != null){
                     Bundle bundle = new Bundle(); //번들을 통해 값 전달
 
@@ -168,6 +206,42 @@ public class FragExStart extends Fragment implements View.OnClickListener {
 
                     transaction.commit();
                 }
+=======
+                    if(explaylist.get(tonext + 1) != null){
+
+                        tonext += 1;
+                        if(tonext == explaylist.size()){
+                            tonext = 0;
+                            countDownTimer.onFinish();
+                        }
+
+                        if(!explaylist.isEmpty()){
+                            tv_etitle.setText(explaylist.get(tonext).getE_name());
+                        }
+
+                        /*Bundle bundle = new Bundle(); //번들을 통해 값 전달
+
+                        bundle.putInt("pos", pos + 1);
+                        bundle.putSerializable("dto", exlist.get(pos + 1));
+                        FragExStart fragExStart = new FragExStart();   //FragExStart 선언
+                        fragExStart.setArguments(bundle);    //번들을 FragExStart 로 보낼 준비
+
+                        fragmentManager = getParentFragmentManager();
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+                        transaction.replace(R.id.main_frag, fragExStart).setTransition(transaction.TRANSIT_FRAGMENT_OPEN);
+
+                        transaction.commit();*/
+//
+//                        FragExStart fragExStart = new FragExStart(fragmentManager);
+//                        Bundle bundle = new Bundle(); //번들을 통해 값 전달
+//                        bundle.putInt("pos", tonext);
+//                        bundle.putSerializable("dto", exlist.get(tonext));
+//                        activity.setFrag(fragExStart, bundle);
+//
+//                        activity.mBundle = null;
+                    }
+>>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
                 } catch (IndexOutOfBoundsException e){
                     tv_time.setText("운동 끝");
                     FragHome fraghome = new FragHome();

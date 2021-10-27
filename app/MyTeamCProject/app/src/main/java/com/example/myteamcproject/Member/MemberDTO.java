@@ -10,7 +10,13 @@ public class MemberDTO implements Serializable {
     private float bmi;
     private String member_c_file_name, member_c_file_path;
 
-    public MemberDTO(){};
+    public  MemberDTO(){
+
+    }
+
+    public MemberDTO(String id){
+        this.id = id;
+    }
 
     //아이디 중복 체크할 때
     public MemberDTO(String id, String name){

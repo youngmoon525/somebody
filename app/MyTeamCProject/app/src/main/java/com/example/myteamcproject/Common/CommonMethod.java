@@ -38,15 +38,18 @@ import java.util.UUID;
 
 public class CommonMethod {
     // 나의 ip를 선언해 놓는다.
+<<<<<<< HEAD
     public static String ipConfig = "http://192.168.0.3:80/project";
 
     private static final String TAG = "CommonMethod";
+=======
+    public static String ipConfig = "http://192.168.0.45:80/project";
+>>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
 
     // 어느곳에서나 로그인이 되어 있는지 loginDTO를 static으로 생성
     public static MemberDTO loginDTO = null;
-
     public static List<ExerciseDTO> exlist = null;
-    public static ArrayList<UserExerciseDTO> explaylist = null;
+    public static ArrayList<UserExerciseDTO> explaylist = new ArrayList<>();
     public static int tonext = 0;
 
     public static List<CommunityDTO> colist = null;
@@ -61,11 +64,14 @@ public class CommonMethod {
     public static List<FoodDTO> foodlist = null;
     public static FoodDTO foodDTO = null;
 
+<<<<<<< HEAD
     public static InputStream inputStream = null;
     public static String mStrDelimiter = "\n";
     public static OutputStream mOutputStream = null;
     public static BluetoothAdapter mBluetoothAdapter = null;
 
+=======
+>>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
     // 이미지 로테이트 및 사이즈 변경
     public static Bitmap imageRotateAndResize(String path){ // state 1:insert, 2:update
         BitmapFactory.Options options = new BitmapFactory.Options();

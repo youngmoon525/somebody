@@ -2,7 +2,10 @@ package com.example.myteamcproject;
 
 import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
 import androidx.annotation.NonNull;
+<<<<<<< HEAD
 import androidx.appcompat.app.AlertDialog;
+=======
+>>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -43,6 +46,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
+<<<<<<< HEAD
 import static com.example.myteamcproject.Common.CommonMethod.inputStream;
 import static com.example.myteamcproject.Common.CommonMethod.mOutputStream;
 
@@ -52,6 +56,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+=======
+>>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,7 +81,11 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView imgProfile;
 
+<<<<<<< HEAD
 
+=======
+    public Bundle mBundle = null;
+>>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         frag_chat = new FragComm();
         frag_gift = new FragGift();
         fragMyPage = new FragMyPage();
-        setFrag(frag_home); // 첫 프래그먼트 화면을 무엇으로 지정해줄 것인지 선택.
+        setFrag(frag_home, null); // 첫 프래그먼트 화면을 무엇으로 지정해줄 것인지 선택.
 
         imgProfile = findViewById(R.id.imgProfile);
 
@@ -97,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(loginDTO != null){
-                    setFrag(fragMyPage);
+                    setFrag(fragMyPage, null);
                 }else{
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
@@ -144,13 +154,13 @@ public class MainActivity extends AppCompatActivity {
                 switch (itemid)
                 {
                     case R.id.item_home:
-                        setFrag(frag_home);
+                        setFrag(frag_home, null);
                         break;
                     case R.id.item_chat:
-                        setFrag(frag_chat);
+                        setFrag(frag_chat, null);
                         break;
                     case R.id.item_cart:
-                        setFrag(frag_gift);
+                        setFrag(frag_gift, null);
                         break;
                     case R.id.item_account:
                         drawer.openDrawer(drawerView);
@@ -164,13 +174,15 @@ public class MainActivity extends AppCompatActivity {
     }//onCreate
 
     // 프레그먼트 교체가 일어나는 실행문.
-    private void setFrag(Fragment fragment)
+    public void setFrag(Fragment fragment, Bundle bundle)
     {
-            fragmentManager = getSupportFragmentManager();
-            fragmentTransaction= fragmentManager.beginTransaction();
+        this.mBundle = bundle;
 
-            fragmentTransaction.replace(R.id.main_frag, fragment);
-            fragmentTransaction.commit();
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction= fragmentManager.beginTransaction();
+
+        fragmentTransaction.replace(R.id.main_frag, fragment);
+        fragmentTransaction.commit();
     }//setFrag
 
     DrawerLayout.DrawerListener listener = new DrawerLayout.DrawerListener() {
@@ -231,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     FragService fragService = new FragService();
-                    setFrag(fragService);
+                    setFrag(fragService, null);
                 }
             });
 
@@ -251,7 +263,11 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     FragMfood frag_Mfood = new FragMfood();
+<<<<<<< HEAD
                     setFrag(frag_Mfood);
+=======
+                    setFrag(frag_Mfood, null);
+>>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
                 }
             });
 

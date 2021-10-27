@@ -1,6 +1,5 @@
 package com.example.myteamcproject.Exercise;
 
-import static com.example.myteamcproject.Common.CommonMethod.exlist;
 import static com.example.myteamcproject.Common.CommonMethod.explaylist;
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
@@ -8,7 +7,6 @@ import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Bundle;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
@@ -22,7 +20,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -105,7 +102,6 @@ public class ExerciseAdapter extends
     }//onBindViewHolder
 
 
-
     @Override
     public int getItemCount() {
         return dtos.size();
@@ -158,7 +154,6 @@ public class ExerciseAdapter extends
             tv_ex2 = itemView.findViewById(R.id.tv_ex2);
             chkEx=itemView.findViewById(R.id.chkEx);
 
-            explaylist = new ArrayList<>();
             if(loginDTO != null){
                 chkEx.setVisibility(View.VISIBLE);
             }else {
