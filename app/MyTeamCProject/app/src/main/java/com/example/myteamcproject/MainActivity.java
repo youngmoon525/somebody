@@ -36,7 +36,7 @@ import com.example.myteamcproject.Mypage.FragMyPage;
 import com.example.myteamcproject.Mypage.FrageMyAttr;
 import com.example.myteamcproject.ServiceCenter.FragService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-//jesh
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
