@@ -37,7 +37,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
-
+//jadjsfa
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
