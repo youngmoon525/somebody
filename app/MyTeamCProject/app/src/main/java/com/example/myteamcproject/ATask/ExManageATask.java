@@ -30,15 +30,7 @@ import java.util.List;
 public class ExManageATask extends AsyncTask<Void, Void, String> {
     private static final String TAG = "ExManageATask";
 
-    int u_numb;
     String id;
-    String e_name;
-    String u_date;
-    int e_count;
-    int u_calorie;
-    int u_point;
-    String u_complete;
-    String isChecked;
     String reqC;
 
     public ExManageATask(String reqC) {
@@ -120,21 +112,21 @@ public class ExManageATask extends AsyncTask<Void, Void, String> {
 
     private List<UserExerciseDTO> readMessage(String body) throws IOException, JSONException {
         List<UserExerciseDTO> list = new ArrayList<UserExerciseDTO>();
-        try {
-            JSONArray jArray = new JSONArray(body);
-            for (int i = 0; i < jArray.length(); i++) {
-                JSONObject row = jArray.getJSONObject(i);
-                UserExerciseDTO dto = new UserExerciseDTO();
-                if (reqC.equals("exp")) {
-                    dto.setU_numb(row.getInt("u_numb"));
-                    dto.setId(row.getString("id"));
-                    dto.setE_name(row.getString("e_name"));
-                    dto.setU_date(row.getString("u_date"));
-                    dto.setE_count(row.getInt("e_count"));
-                    dto.setU_calorie(row.getInt("u_calorie"));
-                    dto.setU_point(row.getInt("u_point"));
-                    dto.setU_complete(row.getString("u_complete"));
-                    dto.setIsChecked(row.getString("isChecked"));
+                    try {
+                        JSONArray jArray = new JSONArray(body);
+                        for (int i = 0; i < jArray.length(); i++) {
+                            JSONObject row = jArray.getJSONObject(i);
+                            UserExerciseDTO dto = new UserExerciseDTO();
+                            if (reqC.equals("exp")) {
+                                dto.setU_numb(row.getInt("u_numb"));
+                                dto.setId(row.getString("id"));
+                                dto.setE_name(row.getString("e_name"));
+                                dto.setU_date(row.getString("u_date"));
+                                dto.setE_count(row.getInt("e_count"));
+                                dto.setU_calorie(row.getInt("u_calorie"));
+                                dto.setU_point(row.getInt("u_point"));
+                                dto.setU_complete(row.getString("u_complete"));
+                                dto.setIsChecked(row.getString("isChecked"));
                 }
                 list.add(dto);
             }
