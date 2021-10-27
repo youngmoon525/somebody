@@ -23,6 +23,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.myteamcproject.ATask.ExManageATask;
+import com.example.myteamcproject.Common.CommonMethod;
+import com.example.myteamcproject.Community.FragComm;
 import com.example.myteamcproject.Exercise.ExerciseManageAdapter;
 import com.example.myteamcproject.Exercise.ExerciseManageAdapter2;
 import com.example.myteamcproject.Exercise.OnExerciseManageItemClickListener;
