@@ -1,18 +1,8 @@
 package com.example.myteamcproject.Exercise;
 
-import static android.app.Activity.RESULT_CANCELED;
-import static android.app.Activity.RESULT_OK;
 import static com.example.myteamcproject.Common.CommonMethod.exlist;
 import static com.example.myteamcproject.Common.CommonMethod.explaylist;
-import static com.example.myteamcproject.Common.CommonMethod.inputStream;
-import static com.example.myteamcproject.Common.CommonMethod.mOutputStream;
-import static com.example.myteamcproject.Common.CommonMethod.mBluetoothAdapter;
 
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothSocket;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,7 +15,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -37,9 +26,6 @@ import com.example.myteamcproject.MainActivity;
 import com.example.myteamcproject.R;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
 public class FragEx extends Fragment implements View.OnClickListener {
@@ -50,7 +36,6 @@ public class FragEx extends Fragment implements View.OnClickListener {
     int position;
     ArrayList<ExerciseDTO> dtos;
     FragmentManager fragmentManager;
-    private static final String TAG = "FragEx";
 
     public FragEx(){
 
@@ -63,10 +48,6 @@ public class FragEx extends Fragment implements View.OnClickListener {
 
     // 자신이 활동하는 Activity 찾기
     MainActivity activity;
-
-    // 사용자 정의 함수로 블루투스 활성 상태의 변경 결과를 App으로 알려줄때 식별자로 사용됨(0보다 커야함)
-
-
 
     @Nullable
     @Override
@@ -140,7 +121,7 @@ public class FragEx extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
 
         switch (view.getId()){
-            //frag_ex 운동시작 버튼
+            //frag_ex 버튼
             case R.id.btnStart1:
                 try {
                     if (explaylist.size() != 0) {
@@ -148,14 +129,15 @@ public class FragEx extends Fragment implements View.OnClickListener {
 
                         Bundle bundle = new Bundle(); //번들을 통해 값 전달
                         String e_type = dto.getE_type();
+                        //String e_filepath = "";
                         bundle.putString("e_type", e_type);   //번들에 넘길 값 저장
+                        //bundle.putString("운동사진", e_filepath);
                         bundle.putInt("pos", position);
-                        fragmentManager = getParentFragmentManager();
                         bundle.putSerializable("dto", exlist.get(position));
-                        FragExStart fragExStart = new FragExStart(fragmentManager);   //FragExStart 선언
+                        FragExStart fragExStart = new FragExStart();   //FragExStart 선언
                         fragExStart.setArguments(bundle);    //번들을 FragExStart 로 보낼 준비
 
-
+                        fragmentManager = getParentFragmentManager();
                         FragmentTransaction transaction = fragmentManager.beginTransaction();
 
                         transaction.replace(R.id.main_frag, fragExStart).setTransition(transaction.TRANSIT_FRAGMENT_OPEN);
@@ -193,7 +175,5 @@ public class FragEx extends Fragment implements View.OnClickListener {
         }//switch
 
     }//onclick
-
-
 
 }
