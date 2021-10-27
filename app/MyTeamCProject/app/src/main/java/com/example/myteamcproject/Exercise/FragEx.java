@@ -4,8 +4,6 @@ import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 import static com.example.myteamcproject.Common.CommonMethod.exlist;
 import static com.example.myteamcproject.Common.CommonMethod.explaylist;
-<<<<<<< HEAD
-<<<<<<< HEAD
 import static com.example.myteamcproject.Common.CommonMethod.inputStream;
 import static com.example.myteamcproject.Common.CommonMethod.mOutputStream;
 import static com.example.myteamcproject.Common.CommonMethod.mBluetoothAdapter;
@@ -15,12 +13,6 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.DialogInterface;
 import android.content.Intent;
-=======
-import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
-=======
->>>>>>> main
-
->>>>>>> c02e2c87c568a2035f371a417852e038ad36a0f3
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -148,7 +140,7 @@ public class FragEx extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
 
         switch (view.getId()){
-            //frag_ex 버튼
+            //frag_ex 운동시작 버튼
             case R.id.btnStart1:
                 try {
                     if (explaylist.size() != 0) {
@@ -156,9 +148,7 @@ public class FragEx extends Fragment implements View.OnClickListener {
 
                         Bundle bundle = new Bundle(); //번들을 통해 값 전달
                         String e_type = dto.getE_type();
-                        //String e_filepath = "";
                         bundle.putString("e_type", e_type);   //번들에 넘길 값 저장
-                        //bundle.putString("운동사진", e_filepath);
                         bundle.putInt("pos", position);
                         fragmentManager = getParentFragmentManager();
                         bundle.putSerializable("dto", exlist.get(position));
