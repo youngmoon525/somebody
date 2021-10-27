@@ -22,7 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.example.myteamcproject.ATask.JoinInsert;
+import com.example.myteamcproject.ATask.MemberATask;
 import com.example.myteamcproject.Common.CommonMethod;
 import com.example.myteamcproject.MainActivity;
 import com.example.myteamcproject.R;
@@ -38,7 +38,7 @@ public class JoinActivity extends AppCompatActivity {
     EditText et_id, et_password, et_email, et_name, et_phonenumber, et_height, et_weight;
     ImageView imgjoinprofile;
     public String imageRealPathA, imageDbPathA;
-    String state;
+    String result;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,9 +74,9 @@ public class JoinActivity extends AppCompatActivity {
                 MemberDTO dto = new MemberDTO(id, password, email, name, phonenumber, bmi, height, weight);
 
                 // 이 정보를 비동기 Task 로 넘겨 서버에게 전달한다.
-                JoinInsert joinInsert = new JoinInsert(dto, imageRealPathA, imageDbPathA);
+                MemberATask aTask = new MemberATask("insert",dto, imageRealPathA, imageDbPathA);
                 try {
-                    state = joinInsert.execute().get();
+                    result = aTask.execute().get();
                 } catch (ExecutionException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {
@@ -84,8 +84,6 @@ public class JoinActivity extends AppCompatActivity {
                 }
 
                 finish();
-
-
             }
         });
 
@@ -203,6 +201,3 @@ public class JoinActivity extends AppCompatActivity {
 
 
 }
-
-
-
