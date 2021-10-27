@@ -168,21 +168,33 @@ public class ExerciseAdapter extends
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     try{
-                    if (isChecked){
-                        chkEx.setText("체크됨");
-                        explaylist.add(new UserExerciseDTO(getAdapterPosition(), loginDTO.getId(), tv_name.getText().toString(), getTime().toString()
-                        , 0, 0, 0, "N", "Y"));
-                    }
+                        if (isChecked){
+                            chkEx.setText("체크됨");
+                            explaylist.add(new UserExerciseDTO(getAdapterPosition(), loginDTO.getId(), tv_name.getText().toString(), getTime().toString()
+                            , 0, 0, 0, "N", "Y"));
+                        }else {
+                            chkEx.setText("");
+                            if(explaylist.size() == 1){
+                                explaylist.clear();
+                            }else {
+                                explaylist.remove(getAdapterPosition());
+                            }
+
+                        }
+
+                        Log.d(TAG, "onCheckedChanged: size " + explaylist.size() + ", " + getAdapterPosition());
+
                     }catch (IndexOutOfBoundsException e){
-                        if(explaylist.size() > 0){
+                        Log.d(TAG, "onCheckedChanged: " + e.getMessage());
+                        /*if(explaylist.size() > 0){
                             explaylist.remove(getAdapterPosition());
                             chkEx.setText("");
                         }else{
                             explaylist.clear();
-                        }//if
-                }//try&catch
-            }//onCheckedChanged
-     });//setOnCheckedChangeListener
+                        }//if*/
+                    }//try&catch
+                }//onCheckedChanged
+            });//setOnCheckedChangeListener
 
             // 2.화면에 clickListener 를 달아준다.
             itemView.setOnClickListener(new View.OnClickListener() {

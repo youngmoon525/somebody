@@ -1,9 +1,21 @@
 package com.example.myteamcproject.Common;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
+import android.os.Handler;
+import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.example.myteamcproject.Community.CommunityDTO;
 import com.example.myteamcproject.Exercise.ExerciseDTO;
@@ -11,17 +23,24 @@ import com.example.myteamcproject.Exercise.UserExerciseDTO;
 import com.example.myteamcproject.Gift.CartDTO;
 import com.example.myteamcproject.Gift.GiftDTO;
 import com.example.myteamcproject.Member.MemberDTO;
-import com.example.myteamcproject.Mypage.AttendanceDTO;
 import com.example.myteamcproject.Mypage.FoodDTO;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.UUID;
 
 public class CommonMethod {
     // 나의 ip를 선언해 놓는다.
-    public static String ipConfig = "http://221.156.48.92:8083/project";
+    public static String ipConfig = "http://192.168.0.3:80/project";
+
+    private static final String TAG = "CommonMethod";
 
     // 어느곳에서나 로그인이 되어 있는지 loginDTO를 static으로 생성
     public static MemberDTO loginDTO = null;
@@ -42,7 +61,10 @@ public class CommonMethod {
     public static List<FoodDTO> foodlist = null;
     public static FoodDTO foodDTO = null;
 
-    public static List<AttendanceDTO> MyattList = null;
+    public static InputStream inputStream = null;
+    public static String mStrDelimiter = "\n";
+    public static OutputStream mOutputStream = null;
+    public static BluetoothAdapter mBluetoothAdapter = null;
 
     // 이미지 로테이트 및 사이즈 변경
     public static Bitmap imageRotateAndResize(String path){ // state 1:insert, 2:update
@@ -121,6 +143,17 @@ public class CommonMethod {
             return null;
         }
 
+    }
+
+    // 우노보드로 데이터 보내기
+    public void sendData(String msg, OutputStream mOutputStream, String mStrDelimiter, Context context) {
+        try {
+
+            mOutputStream.write(new StringBuilder(String.valueOf(msg)).append(mStrDelimiter).toString().getBytes());
+        } catch (Exception e) {
+            Toast.makeText(context, "\ub370\uc774\ud130 \uc804\uc1a1 \uc911 \uc624\ub958\uac00 \ubc1c\uc0dd\ud588\uc2b5\ub2c8\ub2e4.", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
 }//CommonMethod

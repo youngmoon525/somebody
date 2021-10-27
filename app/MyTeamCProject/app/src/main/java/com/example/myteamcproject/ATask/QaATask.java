@@ -1,7 +1,7 @@
 package com.example.myteamcproject.ATask;
 
-import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 import static com.example.myteamcproject.Common.CommonMethod.qalist;
+import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
