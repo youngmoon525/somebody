@@ -2,7 +2,6 @@ package com.example.myteamcproject.Exercise;
 
 import static com.example.myteamcproject.Common.CommonMethod.exlist;
 import static com.example.myteamcproject.Common.CommonMethod.explaylist;
-import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,8 +21,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myteamcproject.ATask.ExInsertATask;
-import com.example.myteamcproject.ATask.ExUpdateATask;
 import com.example.myteamcproject.ATask.ExerciseATask;
 import com.example.myteamcproject.MainActivity;
 import com.example.myteamcproject.R;
@@ -30,7 +29,6 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 public class FragEx extends Fragment implements View.OnClickListener {
-    private static final String TAG = "main:FragEx";
 
     RecyclerView recyclerView_ex;
     ExerciseAdapter adapter2;
@@ -38,7 +36,6 @@ public class FragEx extends Fragment implements View.OnClickListener {
     int position;
     ArrayList<ExerciseDTO> dtos;
     FragmentManager fragmentManager;
-
 
     public FragEx(){
 
@@ -56,22 +53,20 @@ public class FragEx extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        ViewGroup viewGroup = (ViewGroup) inflater
-                .inflate(R.layout.frag_ex, container, false);
+            ViewGroup viewGroup = (ViewGroup) inflater
+                    .inflate(R.layout.frag_ex, container, false);
+
+            // Fragment에서는 onClick을 사용할 수 없기때문에, 별도로 리스너를 달아서 클릭이벤트를 지정한다.
+            Button btnStart1 = viewGroup.findViewById(R.id.btnStart1);
+            btnStart1.setOnClickListener(this);
+
+            Bundle bundle = getArguments();
+            if (bundle!=null){
+                e_type = bundle.getString("e_type");
+            }
 
 
-
-        // Fragment에서는 onClick을 사용할 수 없기때문에, 별도로 리스너를 달아서 클릭이벤트를 지정한다.
-        Button btnStart1 = viewGroup.findViewById(R.id.btnStart1);
-        btnStart1.setOnClickListener(this);
-
-        Bundle bundle = getArguments();
-        if (bundle!=null){
-            e_type = bundle.getString("e_type");
-
-        }
-
-        Log.d("TAG", "onCreateView: " + e_type);
+            Log.d("TAG", "onCreateView: " + e_type);
 
         activity = (MainActivity) getActivity();
 
@@ -122,20 +117,21 @@ public class FragEx extends Fragment implements View.OnClickListener {
         return viewGroup;
     }
 
-    // 운동시작버튼
     @Override
     public void onClick(View view) {
 
         switch (view.getId()){
-            //frag_ex 운동시작 버튼
+            //frag_ex 버튼
             case R.id.btnStart1:
                 try {
                     if (explaylist.size() != 0) {
-                        
-                        /*ExerciseDTO dto = adapter2.getItem(position);
+                        ExerciseDTO dto = adapter2.getItem(position);
+
                         Bundle bundle = new Bundle(); //번들을 통해 값 전달
                         String e_type = dto.getE_type();
+                        //String e_filepath = "";
                         bundle.putString("e_type", e_type);   //번들에 넘길 값 저장
+                        //bundle.putString("운동사진", e_filepath);
                         bundle.putInt("pos", position);
                         bundle.putSerializable("dto", exlist.get(position));
                         FragExStart fragExStart = new FragExStart();   //FragExStart 선언
@@ -144,45 +140,9 @@ public class FragEx extends Fragment implements View.OnClickListener {
                         fragmentManager = getParentFragmentManager();
                         FragmentTransaction transaction = fragmentManager.beginTransaction();
 
-                        transaction.replace(R.id.main_frag, fragExStart).setTransition(transaction.TRANSIT_FRAGMENT_OPEN);*/
+                        transaction.replace(R.id.main_frag, fragExStart).setTransition(transaction.TRANSIT_FRAGMENT_OPEN);
 
-                        for(int i=0; i<explaylist.size(); i++){
-                            Log.d(TAG, "onClick: explaylist " + i + explaylist.get(i).getE_name());
-
-                            ExInsertATask insertATask = new ExInsertATask("exi", loginDTO.getId(), explaylist.get(i).getE_name());//id, e_name값;
-                            try{
-                                insertATask.execute().get();
-                            }catch (Exception e){
-
-                            }
-
-                        }
-
-                        FragExStart fragExStart = new FragExStart(fragmentManager);
-                        ExerciseDTO dto = adapter2.getItem(position);
-                        Bundle bundle = new Bundle(); //번들을 통해 값 전달
-                        String e_type = dto.getE_type();
-                        bundle.putString("e_type", e_type);   //번들에 넘길 값 저장
-                        bundle.putInt("pos", position);
-                        bundle.putSerializable("dto", exlist.get(position));
-                        activity.setFrag(fragExStart, bundle);
-
-
-
-                       /* ExInsertATask insertATask = new ExInsertATask("exi", loginDTO.getId(), explaylist.get(position).getE_name());//id, e_name값;
-                            String e_name = "윗몸일으키기" + "팔굽혀펴기";
-                            explaylist.add(new UserExerciseDTO(loginDTO.getId(), explaylist.get(position).getE_name()));
-                            explaylist.add(new UserExerciseDTO(loginDTO.getId(), explaylist.get(position).getE_name()));
-
-                        ExUpdateATask updateATask = new ExUpdateATask("exu", u_numb);//u_numb값;
-
-                        try{
-                            insertATask.execute().get();
-                            updateATask.execute().get();
-                        }catch (Exception e){
-                            e.getStackTrace();
-                        }
-                        transaction.commit();*/
+                        transaction.commit();
                         break;
 
                     }else if(adapter2.getItem(position).getE_name().equals("걷기")){
