@@ -1,14 +1,7 @@
 package com.example.myteamcproject;
 
+import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
 import android.content.Intent;
@@ -22,27 +15,33 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.bumptech.glide.Glide;
 import com.example.myteamcproject.Common.FragHome;
 import com.example.myteamcproject.Community.FragComm;
 import com.example.myteamcproject.Gift.FragGift;
 import com.example.myteamcproject.Member.JoinActivity;
 import com.example.myteamcproject.Member.LoginActivity;
-import com.example.myteamcproject.Member.MemberDTO;
 import com.example.myteamcproject.Mypage.FragCartList;
 import com.example.myteamcproject.Mypage.FragMfood;
 import com.example.myteamcproject.Mypage.FragMyPage;
+import com.example.myteamcproject.Mypage.FrageMyAttr;
 import com.example.myteamcproject.ServiceCenter.FragService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
-import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
-//jadjsfa
+//jesh
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
-    Button btnLogin, btnJoin, btnLogout, btnMypage, btnCart, btnScenter, btnmfood;
+    Button btnLogin, btnJoin, btnLogout, btnMypage, btnCart, btnScenter, btnmfood, btnAttu;
 
     //바텀 네비게이션 뷰
     private BottomNavigationView bottomNavigationView;
@@ -57,16 +56,12 @@ public class MainActivity extends AppCompatActivity {
     private FragComm frag_chat;
     private FragGift frag_gift;
     private FragMyPage fragMyPage;
-
     private ImageView imgProfile;
-
-    public Bundle mBundle = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         checkDangerousPermissions();
 
         //프래그먼트 객체체생성
@@ -74,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         frag_chat = new FragComm();
         frag_gift = new FragGift();
         fragMyPage = new FragMyPage();
-        setFrag(frag_home, null); // 첫 프래그먼트 화면을 무엇으로 지정해줄 것인지 선택.
+        setFrag(frag_home); // 첫 프래그먼트 화면을 무엇으로 지정해줄 것인지 선택.
 
         imgProfile = findViewById(R.id.imgProfile);
 
@@ -82,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(loginDTO != null){
-                    setFrag(fragMyPage, null);
+                    setFrag(fragMyPage);
                 }else{
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
@@ -101,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         btnMypage = drawerView.findViewById(R.id.btnMypage);
         btnCart = drawerView.findViewById(R.id.btnCart);
         btnmfood = drawerView.findViewById(R.id.btnmfood);
+        btnAttu = drawerView.findViewById(R.id.btnAttu);
 
         //drawerLayout.setDrawerListener(listener);
         drawer.addDrawerListener(listener);
@@ -129,13 +125,13 @@ public class MainActivity extends AppCompatActivity {
                 switch (itemid)
                 {
                     case R.id.item_home:
-                        setFrag(frag_home, null);
+                        setFrag(frag_home);
                         break;
                     case R.id.item_chat:
-                        setFrag(frag_chat, null);
+                        setFrag(frag_chat);
                         break;
                     case R.id.item_cart:
-                        setFrag(frag_gift, null);
+                        setFrag(frag_gift);
                         break;
                     case R.id.item_account:
                         drawer.openDrawer(drawerView);
@@ -148,15 +144,13 @@ public class MainActivity extends AppCompatActivity {
     }//onCreate
 
     // 프레그먼트 교체가 일어나는 실행문.
-    public void setFrag(Fragment fragment, Bundle bundle)
+    private void setFrag(Fragment fragment)
     {
-        this.mBundle = bundle;
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction= fragmentManager.beginTransaction();
 
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction= fragmentManager.beginTransaction();
-
-        fragmentTransaction.replace(R.id.main_frag, fragment);
-        fragmentTransaction.commit();
+            fragmentTransaction.replace(R.id.main_frag, fragment);
+            fragmentTransaction.commit();
     }//setFrag
 
     DrawerLayout.DrawerListener listener = new DrawerLayout.DrawerListener() {
@@ -217,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     FragService fragService = new FragService();
-                    setFrag(fragService, null);
+                    setFrag(fragService);
                 }
             });
 
@@ -236,8 +230,18 @@ public class MainActivity extends AppCompatActivity {
             btnmfood.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    FragMfood frag_Mfood = new FragMfood();
-                    setFrag(frag_Mfood, null);
+                    FragMfood fragMfood = new FragMfood();
+                    setFrag(fragMfood);
+                }
+            });
+
+            btnAttu.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    FrageMyAttr frageMyAttr = new FrageMyAttr();
+
+                    setFrag(frageMyAttr);
+
                 }
             });
 
@@ -282,6 +286,7 @@ public class MainActivity extends AppCompatActivity {
             btnLogin.setVisibility(View.GONE);
             btnJoin.setVisibility(View.GONE);
             btnmfood.setVisibility(View.VISIBLE);
+            btnAttu.setVisibility(View.VISIBLE);
         }//if dto null
     }//onResume
 
@@ -290,6 +295,8 @@ public class MainActivity extends AppCompatActivity {
         String[] permissions = {
                 Manifest.permission.ACCESS_NETWORK_STATE,
                 Manifest.permission.ACCESS_WIFI_STATE,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.CAMERA
