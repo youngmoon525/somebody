@@ -11,7 +11,10 @@ import com.example.myteamcproject.Exercise.UserExerciseDTO;
 import com.example.myteamcproject.Gift.CartDTO;
 import com.example.myteamcproject.Gift.GiftDTO;
 import com.example.myteamcproject.Member.MemberDTO;
+<<<<<<< HEAD
 import com.example.myteamcproject.Mypage.AttendanceDTO;
+=======
+>>>>>>> jensh
 import com.example.myteamcproject.Mypage.FoodDTO;
 
 import java.io.File;
@@ -21,6 +24,7 @@ import java.util.List;
 
 public class CommonMethod {
     // 나의 ip를 선언해 놓는다.
+<<<<<<< HEAD
     public static String ipConfig = "http://221.156.48.92:8083/project";
 
     // 어느곳에서나 로그인이 되어 있는지 loginDTO를 static으로 생성
@@ -28,6 +32,14 @@ public class CommonMethod {
 
     public static List<ExerciseDTO> exlist = null;
     public static ArrayList<UserExerciseDTO> explaylist = null;
+=======
+    public static String ipConfig = "http://192.168.0.45:80/project";
+
+    // 어느곳에서나 로그인이 되어 있는지 loginDTO를 static으로 생성
+    public static MemberDTO loginDTO = null;
+    public static List<ExerciseDTO> exlist = null;
+    public static ArrayList<UserExerciseDTO> explaylist = new ArrayList<>();
+>>>>>>> jensh
     public static int tonext = 0;
 
     public static List<CommunityDTO> colist = null;
@@ -42,8 +54,11 @@ public class CommonMethod {
     public static List<FoodDTO> foodlist = null;
     public static FoodDTO foodDTO = null;
 
+<<<<<<< HEAD
     public static List<AttendanceDTO> MyattList = null;
 
+=======
+>>>>>>> jensh
     // 이미지 로테이트 및 사이즈 변경
     public static Bitmap imageRotateAndResize(String path){ // state 1:insert, 2:update
         BitmapFactory.Options options = new BitmapFactory.Options();

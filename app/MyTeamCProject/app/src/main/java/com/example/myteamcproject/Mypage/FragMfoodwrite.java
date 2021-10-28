@@ -1,6 +1,10 @@
 package com.example.myteamcproject.Mypage;
 
 import static android.app.Activity.RESULT_OK;
+<<<<<<< HEAD
+=======
+import static com.example.myteamcproject.Common.CommonMethod.foodDTO;
+>>>>>>> jensh
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
 

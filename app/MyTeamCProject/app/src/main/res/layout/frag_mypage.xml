@@ -297,9 +297,15 @@
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
+<<<<<<< HEAD
                 android:id="@+id/recyclerView_exm1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
+=======
+                android:id="@+id/recyclerView_exN"
+                android:layout_width="match_parent"
+                android:layout_height="500dp" >
+>>>>>>> jensh
             </androidx.recyclerview.widget.RecyclerView>
 
             <TextView
@@ -313,15 +319,24 @@
                 android:textStyle="bold"/>
 
             <androidx.recyclerview.widget.RecyclerView
+<<<<<<< HEAD
                 android:id="@+id/recyclerView_exm2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
+=======
+                android:id="@+id/recyclerView_exY"
+                android:layout_width="match_parent"
+                android:layout_height="500dp">
+>>>>>>> jensh
             </androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>
 
     </ScrollView>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> jensh
 </LinearLayout>
 </ScrollView>

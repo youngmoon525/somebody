@@ -75,7 +75,11 @@ public class ExerciseTypeAdapter extends RecyclerView.Adapter<ExerciseTypeAdapte
                 Bundle bundle = new Bundle(); //번들을 통해 값 전달
                 String e_type = dto.getE_type();
                 bundle.putString("e_type", e_type);   //번들에 넘길 값 저장
+<<<<<<< HEAD
                 FragEx fragEx = new FragEx();   //FragEx 선언
+=======
+                FragEx fragEx = new FragEx(fragmentManager);   //FragEx 선언
+>>>>>>> jensh
                 fragEx.setArguments(bundle);    //번들을 FragEx로 보낼 준비
 
 

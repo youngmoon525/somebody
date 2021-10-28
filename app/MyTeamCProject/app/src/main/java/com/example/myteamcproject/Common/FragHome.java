@@ -7,11 +7,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+<<<<<<< HEAD
+=======
+import android.widget.Toast;
+>>>>>>> jensh
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+<<<<<<< HEAD
+=======
+import androidx.fragment.app.FragmentTransaction;
+>>>>>>> jensh
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +27,10 @@ import com.example.myteamcproject.ATask.ExerciseATask;
 import com.example.myteamcproject.Exercise.ExerciseDTO;
 import com.example.myteamcproject.Exercise.ExerciseTypeAdapter;
 import com.example.myteamcproject.Exercise.OnExerciseTypeItemClickListener;
+<<<<<<< HEAD
+=======
+import com.example.myteamcproject.Gift.FragCart;
+>>>>>>> jensh
 import com.example.myteamcproject.MainActivity;
 import com.example.myteamcproject.R;
 

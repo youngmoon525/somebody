@@ -40,6 +40,7 @@
         android:visibility="gone"/>
 
     <Button
+<<<<<<< HEAD
         android:id="@+id/btnAttu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,6 +48,8 @@
         android:visibility="gone"/>
 
     <Button
+=======
+>>>>>>> jensh
         android:id="@+id/btnScenter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

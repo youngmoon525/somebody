@@ -17,7 +17,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+<<<<<<< HEAD
 import com.example.myteamcproject.ATask.MemberATask;
+=======
+import com.example.myteamcproject.ATask.LoginSelect;
+import com.example.myteamcproject.ATask.MemberATask;
+import com.example.myteamcproject.MainActivity;
+>>>>>>> jensh
 import com.example.myteamcproject.R;
 
 import java.util.concurrent.ExecutionException;
@@ -34,6 +40,12 @@ public class FrageMyPageUpdate extends Fragment {
     TextView upmyid, upmypoint;
     EditText upmyemail, upmyname, upmyphone, upmygender, upmybmi, upmyweight, upmyheight;
 
+<<<<<<< HEAD
+=======
+    String reqC;
+
+
+>>>>>>> jensh
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -104,9 +116,15 @@ public class FrageMyPageUpdate extends Fragment {
 
                 Toast.makeText(getContext(), "작성이 완료 되었습니다.", Toast.LENGTH_SHORT).show();
 
+<<<<<<< HEAD
                 memberATask = new MemberATask("login", loginDTO.getId(), loginDTO.getPassword());
                 try {
                     memberATask.execute().get();
+=======
+                LoginSelect loginSelect = new LoginSelect(loginDTO.getId(), loginDTO.getPassword());
+                try {
+                    loginSelect.execute().get();
+>>>>>>> jensh
                 } catch (ExecutionException e) {
                     e.getMessage();
                 } catch (InterruptedException e) {

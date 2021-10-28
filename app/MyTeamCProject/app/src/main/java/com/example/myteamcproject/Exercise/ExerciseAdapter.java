@@ -1,6 +1,9 @@
 package com.example.myteamcproject.Exercise;
 
+<<<<<<< HEAD
 import static com.example.myteamcproject.Common.CommonMethod.exlist;
+=======
+>>>>>>> jensh
 import static com.example.myteamcproject.Common.CommonMethod.explaylist;
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
@@ -8,7 +11,10 @@ import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
+<<<<<<< HEAD
 import android.os.Bundle;
+=======
+>>>>>>> jensh
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
@@ -22,7 +28,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
+<<<<<<< HEAD
 import androidx.fragment.app.FragmentTransaction;
+=======
+>>>>>>> jensh
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -105,7 +114,10 @@ public class ExerciseAdapter extends
     }//onBindViewHolder
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> jensh
     @Override
     public int getItemCount() {
         return dtos.size();
@@ -158,7 +170,10 @@ public class ExerciseAdapter extends
             tv_ex2 = itemView.findViewById(R.id.tv_ex2);
             chkEx=itemView.findViewById(R.id.chkEx);
 
+<<<<<<< HEAD
             explaylist = new ArrayList<>();
+=======
+>>>>>>> jensh
             if(loginDTO != null){
                 chkEx.setVisibility(View.VISIBLE);
             }else {
@@ -168,6 +183,7 @@ public class ExerciseAdapter extends
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     try{
+<<<<<<< HEAD
                     if (isChecked){
                         chkEx.setText("체크됨");
                         explaylist.add(new UserExerciseDTO(getAdapterPosition(), loginDTO.getId(), tv_name.getText().toString(), getTime().toString()
@@ -175,14 +191,42 @@ public class ExerciseAdapter extends
                     }
                     }catch (IndexOutOfBoundsException e){
                         if(explaylist.size() > 0){
+=======
+                        if (isChecked){
+                            chkEx.setText("체크됨");
+                            explaylist.add(new UserExerciseDTO(getAdapterPosition(), loginDTO.getId(), tv_name.getText().toString(), getTime().toString()
+                            , 0, 0, 0, "N", "Y"));
+                        }else {
+                            chkEx.setText("");
+                            if(explaylist.size() == 1){
+                                explaylist.clear();
+                            }else {
+                                explaylist.remove(getAdapterPosition());
+                            }
+
+                        }
+
+                        Log.d(TAG, "onCheckedChanged: size " + explaylist.size() + ", " + getAdapterPosition());
+
+                    }catch (IndexOutOfBoundsException e){
+                        Log.d(TAG, "onCheckedChanged: " + e.getMessage());
+                        /*if(explaylist.size() > 0){
+>>>>>>> jensh
                             explaylist.remove(getAdapterPosition());
                             chkEx.setText("");
                         }else{
                             explaylist.clear();
+<<<<<<< HEAD
                         }//if
                 }//try&catch
             }//onCheckedChanged
      });//setOnCheckedChangeListener
+=======
+                        }//if*/
+                    }//try&catch
+                }//onCheckedChanged
+            });//setOnCheckedChangeListener
+>>>>>>> jensh
 
             // 2.화면에 clickListener 를 달아준다.
             itemView.setOnClickListener(new View.OnClickListener() {
