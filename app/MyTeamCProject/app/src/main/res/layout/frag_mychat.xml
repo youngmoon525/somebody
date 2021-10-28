@@ -54,9 +54,13 @@
             android:layout_marginBottom="8dp"
             android:text="입력"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             android:enabled="false"
 >>>>>>> jensh
+=======
+            android:enabled="false"
+>>>>>>> ysj
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

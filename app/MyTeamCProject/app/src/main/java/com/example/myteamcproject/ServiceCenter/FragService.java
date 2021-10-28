@@ -1,34 +1,47 @@
 package com.example.myteamcproject.ServiceCenter;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
 import android.os.Bundle;
 =======
+=======
+>>>>>>> ysj
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+<<<<<<< HEAD
 >>>>>>> jensh
+=======
+>>>>>>> ysj
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import androidx.fragment.app.Fragment;
 
 =======
 >>>>>>> jensh
+=======
+>>>>>>> ysj
 import com.example.myteamcproject.R;
 
 public class FragService extends Fragment {
 
     View view;
 <<<<<<< HEAD
+<<<<<<< HEAD
     Button btnQA, btnChat, btnadmin;
 =======
     Button btnQA, btnChat;
 >>>>>>> jensh
+=======
+    Button btnQA, btnChat;
+>>>>>>> ysj
 
    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,6 +50,7 @@ public class FragService extends Fragment {
 
        view = inflater.inflate(R.layout.frag_service, container, false);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
        btnQA = view.findViewById(R.id.btnQA);
        btnChat = view.findViewById(R.id.btnChat);
@@ -54,6 +68,9 @@ public class FragService extends Fragment {
 =======
        view.findViewById(R.id.btnQA).setOnClickListener(new View.OnClickListener() {
 >>>>>>> jensh
+=======
+       view.findViewById(R.id.btnQA).setOnClickListener(new View.OnClickListener() {
+>>>>>>> ysj
            @Override
            public void onClick(View view) {
                FragQA fragQA = new FragQA();
@@ -63,11 +80,15 @@ public class FragService extends Fragment {
        });//view.findViewById(R.id.btnQA).setOnClickListener
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
        btnChat.setOnClickListener(new View.OnClickListener() {
 =======
        view.findViewById(R.id.btnChat).setOnClickListener(new View.OnClickListener() {
 >>>>>>> jensh
+=======
+       view.findViewById(R.id.btnChat).setOnClickListener(new View.OnClickListener() {
+>>>>>>> ysj
            @Override
            public void onClick(View view) {
                FragMyChat fragMyChat = new FragMyChat();
@@ -75,6 +96,7 @@ public class FragService extends Fragment {
            }//onClick
        });//view.findViewById(R.id.btnChat).setOnClickListener
 
+<<<<<<< HEAD
 <<<<<<< HEAD
        btnadmin.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -86,6 +108,9 @@ public class FragService extends Fragment {
 =======
 
 >>>>>>> jensh
+=======
+
+>>>>>>> ysj
 
        return view;
 

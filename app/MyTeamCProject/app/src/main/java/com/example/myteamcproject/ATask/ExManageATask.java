@@ -31,6 +31,9 @@ public class ExManageATask extends AsyncTask<Void, Void, String> {
     private static final String TAG = "ExManageATask";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ysj
     int u_numb;
     String id;
     String e_name;
@@ -40,9 +43,12 @@ public class ExManageATask extends AsyncTask<Void, Void, String> {
     int u_point;
     String u_complete;
     String isChecked;
+<<<<<<< HEAD
 =======
     String id;
 >>>>>>> jensh
+=======
+>>>>>>> ysj
     String reqC;
 
     public ExManageATask(String reqC) {
@@ -125,6 +131,9 @@ public class ExManageATask extends AsyncTask<Void, Void, String> {
     private List<UserExerciseDTO> readMessage(String body) throws IOException, JSONException {
         List<UserExerciseDTO> list = new ArrayList<UserExerciseDTO>();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ysj
         try {
             JSONArray jArray = new JSONArray(body);
             for (int i = 0; i < jArray.length(); i++) {
@@ -140,6 +149,7 @@ public class ExManageATask extends AsyncTask<Void, Void, String> {
                     dto.setU_point(row.getInt("u_point"));
                     dto.setU_complete(row.getString("u_complete"));
                     dto.setIsChecked(row.getString("isChecked"));
+<<<<<<< HEAD
 =======
                     try {
                         JSONArray jArray = new JSONArray(body);
@@ -157,6 +167,8 @@ public class ExManageATask extends AsyncTask<Void, Void, String> {
                                 dto.setU_complete(row.getString("u_complete"));
                                 dto.setIsChecked(row.getString("isChecked"));
 >>>>>>> jensh
+=======
+>>>>>>> ysj
                 }
                 list.add(dto);
             }

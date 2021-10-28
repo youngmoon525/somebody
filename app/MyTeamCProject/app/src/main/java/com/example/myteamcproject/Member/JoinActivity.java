@@ -23,10 +23,14 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import com.example.myteamcproject.ATask.MemberATask;
 =======
 import com.example.myteamcproject.ATask.JoinInsert;
 >>>>>>> jensh
+=======
+import com.example.myteamcproject.ATask.JoinInsert;
+>>>>>>> ysj
 import com.example.myteamcproject.Common.CommonMethod;
 import com.example.myteamcproject.MainActivity;
 import com.example.myteamcproject.R;
@@ -43,10 +47,14 @@ public class JoinActivity extends AppCompatActivity {
     ImageView imgjoinprofile;
     public String imageRealPathA, imageDbPathA;
 <<<<<<< HEAD
+<<<<<<< HEAD
     String result;
 =======
     String state;
 >>>>>>> jensh
+=======
+    String state;
+>>>>>>> ysj
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -83,6 +91,7 @@ public class JoinActivity extends AppCompatActivity {
 
                 // 이 정보를 비동기 Task 로 넘겨 서버에게 전달한다.
 <<<<<<< HEAD
+<<<<<<< HEAD
                 MemberATask aTask = new MemberATask("insert",dto, imageRealPathA, imageDbPathA);
                 try {
                     result = aTask.execute().get();
@@ -91,6 +100,11 @@ public class JoinActivity extends AppCompatActivity {
                 try {
                     state = joinInsert.execute().get();
 >>>>>>> jensh
+=======
+                JoinInsert joinInsert = new JoinInsert(dto, imageRealPathA, imageDbPathA);
+                try {
+                    state = joinInsert.execute().get();
+>>>>>>> ysj
                 } catch (ExecutionException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {
@@ -99,10 +113,15 @@ public class JoinActivity extends AppCompatActivity {
 
                 finish();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
 >>>>>>> jensh
+=======
+
+
+>>>>>>> ysj
             }
         });
 
@@ -220,10 +239,16 @@ public class JoinActivity extends AppCompatActivity {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
+=======
+>>>>>>> ysj
 }
 
 
 
+<<<<<<< HEAD
 >>>>>>> jensh
+=======
+>>>>>>> ysj

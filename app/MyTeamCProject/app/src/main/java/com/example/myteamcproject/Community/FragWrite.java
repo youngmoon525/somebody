@@ -2,6 +2,7 @@ package com.example.myteamcproject.Community;
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
 
@@ -11,6 +12,8 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 =======
+=======
+>>>>>>> ysj
 import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 
@@ -24,7 +27,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+<<<<<<< HEAD
 >>>>>>> jensh
+=======
+>>>>>>> ysj
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -41,6 +47,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import com.example.myteamcproject.ATask.CommunityATask;
 import com.example.myteamcproject.Common.CommonMethod;
 import com.example.myteamcproject.Exercise.FragChat;
@@ -48,6 +55,8 @@ import com.example.myteamcproject.MainActivity;
 import com.example.myteamcproject.R;
 
 =======
+=======
+>>>>>>> ysj
 import com.bumptech.glide.Glide;
 import com.example.myteamcproject.ATask.CommunityATask;
 import com.example.myteamcproject.Common.CommonMethod;
@@ -61,7 +70,10 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
+<<<<<<< HEAD
 >>>>>>> jensh
+=======
+>>>>>>> ysj
 import java.util.concurrent.ExecutionException;
 
 public class FragWrite extends Fragment {
@@ -98,10 +110,14 @@ public class FragWrite extends Fragment {
 
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
 <<<<<<< HEAD
+<<<<<<< HEAD
                 FragComm fragChat = new FragComm();
 =======
                 FragChat fragChat = new FragChat();
 >>>>>>> jensh
+=======
+                FragChat fragChat = new FragChat();
+>>>>>>> ysj
 
                 String co_title_c = co_title.getText().toString();
                 String co_content_c = co_content.getText().toString();

@@ -61,10 +61,15 @@ public class ExerciseATask extends AsyncTask<Void, Void, String> {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
 >>>>>>> jensh
+=======
+
+
+>>>>>>> ysj
     @Override
     protected String doInBackground(Void... voids) {
         try {

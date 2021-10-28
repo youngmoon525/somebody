@@ -10,6 +10,7 @@ public class MemberDTO implements Serializable {
     private float bmi;
     private String member_c_file_name, member_c_file_path;
 <<<<<<< HEAD
+<<<<<<< HEAD
     private String admin;
 
 
@@ -24,6 +25,10 @@ public class MemberDTO implements Serializable {
         this.id = id;
     }
 >>>>>>> jensh
+=======
+
+    public MemberDTO(){};
+>>>>>>> ysj
 
     //아이디 중복 체크할 때
     public MemberDTO(String id, String name){
@@ -194,6 +199,7 @@ public class MemberDTO implements Serializable {
         this.bmi = bmi;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     public String getAdmin() {
         return admin;
@@ -204,4 +210,6 @@ public class MemberDTO implements Serializable {
     }
 =======
 >>>>>>> jensh
+=======
+>>>>>>> ysj
 }

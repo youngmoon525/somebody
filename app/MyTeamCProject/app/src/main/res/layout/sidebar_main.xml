@@ -41,6 +41,7 @@
 
     <Button
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:id="@+id/btnAttu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,6 +51,8 @@
     <Button
 =======
 >>>>>>> jensh
+=======
+>>>>>>> ysj
         android:id="@+id/btnScenter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

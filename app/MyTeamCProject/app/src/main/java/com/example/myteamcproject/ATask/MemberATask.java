@@ -1,9 +1,12 @@
 package com.example.myteamcproject.ATask;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import static com.example.myteamcproject.Common.CommonMethod.MyattList;
 =======
 >>>>>>> jensh
+=======
+>>>>>>> ysj
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
 
@@ -13,9 +16,12 @@ import android.util.Log;
 
 import com.example.myteamcproject.Member.MemberDTO;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import com.example.myteamcproject.Mypage.AttendanceDTO;
 =======
 >>>>>>> jensh
+=======
+>>>>>>> ysj
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -25,18 +31,24 @@ import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import org.apache.http.entity.mime.content.FileBody;
 =======
 >>>>>>> jensh
+=======
+>>>>>>> ysj
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.io.File;
 =======
 >>>>>>> jensh
+=======
+>>>>>>> ysj
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -47,6 +59,7 @@ public class MemberATask extends AsyncTask<Void, Void, String> {
     private static final String TAG = "main:MemberATask";
 
     int bmi, weight, height, point;
+<<<<<<< HEAD
 <<<<<<< HEAD
     String id, email, name, phone, gender, reqC, password;
     MemberDTO dto;
@@ -70,6 +83,8 @@ public class MemberATask extends AsyncTask<Void, Void, String> {
         this.imageDbPathA = imageDbPathA;
     }
 =======
+=======
+>>>>>>> ysj
     String id, email, name, phone, gender, reqC;
 
    /* public MemberATask(String reqC, String id, String email, String name, String gender
@@ -81,7 +96,10 @@ public class MemberATask extends AsyncTask<Void, Void, String> {
         this.phone = phone;
         this.gender = gender;
     }*/
+<<<<<<< HEAD
 >>>>>>> jensh
+=======
+>>>>>>> ysj
 
    public MemberATask(String reqC, String id, String email, String name, String gender
             , String phone, int bmi, int weight, int height, int point) {
@@ -121,6 +139,7 @@ public class MemberATask extends AsyncTask<Void, Void, String> {
             builder.setCharset(Charset.forName("UTF-8"));
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             if(reqC.equals("insert")){
                 builder.addTextBody("id", dto.getId(), ContentType.create("Multipart/related", "UTF-8"));
                 builder.addTextBody("password", dto.getPassword(), ContentType.create("Multipart/related", "UTF-8"));
@@ -140,6 +159,9 @@ public class MemberATask extends AsyncTask<Void, Void, String> {
 =======
             if(reqC.equals("myupdate")){
 >>>>>>> jensh
+=======
+            if(reqC.equals("myupdate")){
+>>>>>>> ysj
                 builder.addTextBody("id", id, ContentType.create("Multipart/related", "UTF-8"));
                 builder.addTextBody("email", email, ContentType.create("Multipart/related", "UTF-8"));
                 builder.addTextBody("name", name, ContentType.create("Multipart/related", "UTF-8"));
@@ -150,14 +172,18 @@ public class MemberATask extends AsyncTask<Void, Void, String> {
                 builder.addTextBody("height", String.valueOf(height), ContentType.create("Multipart/related", "UTF-8"));
                 builder.addTextBody("point", String.valueOf(point), ContentType.create("Multipart/related", "UTF-8"));
 <<<<<<< HEAD
+<<<<<<< HEAD
             }else if(reqC.equals("AttrInsert") || reqC.equals("AttrSelect")){
                 builder.addTextBody("id", id, ContentType.create("Multipart/related", "UTF-8"));
 =======
 >>>>>>> jensh
+=======
+>>>>>>> ysj
             }
 
             // 전송 url 작성
             String postURL = "";
+<<<<<<< HEAD
 <<<<<<< HEAD
             if(reqC.equals("insert")){
                 postURL = ipConfig + "/insert.me";
@@ -173,6 +199,10 @@ public class MemberATask extends AsyncTask<Void, Void, String> {
             if(reqC.equals("myupdate")){
                 postURL = ipConfig + "/myupdate.my";
 >>>>>>> jensh
+=======
+            if(reqC.equals("myupdate")){
+                postURL = ipConfig + "/myupdate.my";
+>>>>>>> ysj
             }//if
 
             //DB와 연동을 위한 http 객체 순서대로 실행
@@ -187,6 +217,7 @@ public class MemberATask extends AsyncTask<Void, Void, String> {
             //body에 담은 값을 readMessage 메소드로 보내 List<DTO>로 변환한다
             if(!body.equals("")){
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if(reqC.equals("myupdate") || reqC.equals("login")){
                     loginDTO = makeMemberdto(body);
                 }else if(reqC.equals("AttrSelect")){
@@ -195,6 +226,10 @@ public class MemberATask extends AsyncTask<Void, Void, String> {
                 if(reqC.equals("myupdate")){
                     loginDTO = mmakedto(body);
 >>>>>>> jensh
+=======
+                if(reqC.equals("myupdate")){
+                    loginDTO = mmakedto(body);
+>>>>>>> ysj
                 }
             }//if
 
@@ -225,10 +260,14 @@ public class MemberATask extends AsyncTask<Void, Void, String> {
     }//onPostExecute
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public MemberDTO makeMemberdto(String body) throws IOException {
 =======
     public MemberDTO mmakedto(String body) throws IOException {
 >>>>>>> jensh
+=======
+    public MemberDTO mmakedto(String body) throws IOException {
+>>>>>>> ysj
         MemberDTO dto = null;
         try {
             JSONObject row = new JSONObject(body);
@@ -238,6 +277,7 @@ public class MemberATask extends AsyncTask<Void, Void, String> {
             dto.setEmail(row.getString("email"));
             dto.setName(row.getString("name"));
             dto.setPhone(row.getString("phone"));
+<<<<<<< HEAD
 <<<<<<< HEAD
             if(!row.isNull("gender")){
                 dto.setGender(row.getString("gender"));
@@ -253,13 +293,18 @@ public class MemberATask extends AsyncTask<Void, Void, String> {
             dto.setAdmin(row.getString("admin"));
         } catch (Exception e) {
 =======
+=======
+>>>>>>> ysj
             dto.setGender(row.getString("gender"));
             dto.setBmi(Integer.parseInt(row.getString("bmi")));
             dto.setWeight(Integer.parseInt(row.getString("weight")));
             dto.setHeight(Integer.parseInt(row.getString("height")));
             dto.setPoint(Integer.parseInt(row.getString("point")));
         } catch (JSONException e) {
+<<<<<<< HEAD
 >>>>>>> jensh
+=======
+>>>>>>> ysj
             Log.d(TAG, "readMessage: " + e.getStackTrace() + ", msg : " + e.getMessage());
         }
 
@@ -292,9 +337,12 @@ public class MemberATask extends AsyncTask<Void, Void, String> {
                 dto.setHeight(Integer.parseInt(row.getString("height")));
                 dto.setPoint(Integer.parseInt(row.getString("point")));
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> jensh
+=======
+>>>>>>> ysj
                 list.add(dto);
             }
 
@@ -312,6 +360,7 @@ public class MemberATask extends AsyncTask<Void, Void, String> {
 
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     private List<AttendanceDTO> MakeAttList(String body) {
     //값을 담기 위한 list 선언
@@ -347,4 +396,6 @@ public class MemberATask extends AsyncTask<Void, Void, String> {
 
 =======
 >>>>>>> jensh
+=======
+>>>>>>> ysj
 }

@@ -42,10 +42,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
 <<<<<<< HEAD
+<<<<<<< HEAD
                     android:gravity="center_vertical"
 =======
                     android:gravity="center"
 >>>>>>> jensh
+=======
+                    android:gravity="center"
+>>>>>>> ysj
                     android:text="운동이름"
                     android:textSize="24sp" />
 
@@ -54,10 +58,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
 <<<<<<< HEAD
+<<<<<<< HEAD
                     android:gravity="center_vertical"
 =======
                     android:gravity="center"
 >>>>>>> jensh
+=======
+                    android:gravity="center"
+>>>>>>> ysj
                     android:text="내용"
                     android:textSize="24sp" />
 

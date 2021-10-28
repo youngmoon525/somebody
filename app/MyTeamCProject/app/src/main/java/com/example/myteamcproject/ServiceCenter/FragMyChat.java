@@ -1,6 +1,7 @@
 package com.example.myteamcproject.ServiceCenter;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 
@@ -11,18 +12,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 =======
+=======
+>>>>>>> ysj
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+<<<<<<< HEAD
 >>>>>>> jensh
+=======
+>>>>>>> ysj
 import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+<<<<<<< HEAD
 <<<<<<< HEAD
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,10 +41,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myteamcproject.R;
 >>>>>>> jensh
+=======
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.myteamcproject.R;
+>>>>>>> ysj
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 import java.text.SimpleDateFormat;
@@ -49,6 +62,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 >>>>>>> jensh
+=======
+import com.google.firebase.database.ValueEventListener;
+
+import java.text.SimpleDateFormat;
+>>>>>>> ysj
 
 
 public class FragMyChat extends Fragment {
@@ -58,6 +76,7 @@ public class FragMyChat extends Fragment {
     private String chatRoomUid; //채팅방 하나 id
     private String myuid;       //나의 id
     private String destUid;     //상대방 uid
+<<<<<<< HEAD
 <<<<<<< HEAD
     private EditText edt_chat;
     private Button btn_send;
@@ -73,10 +92,15 @@ public class FragMyChat extends Fragment {
 
     private RecyclerView recyclerView;
 >>>>>>> jensh
+=======
+
+    private RecyclerView recyclerView;
+>>>>>>> ysj
     private Button button;
     private EditText editText;
 
     private FirebaseDatabase firebaseDatabase;
+<<<<<<< HEAD
 <<<<<<< HEAD
     private DatabaseReference myReference;
     private DatabaseReference destReference;
@@ -180,6 +204,8 @@ public class FragMyChat extends Fragment {
         return view;
     }//onCreateView
 =======
+=======
+>>>>>>> ysj
 
     private User destUser;
 
@@ -226,5 +252,8 @@ public class FragMyChat extends Fragment {
         });
         // [END read_message]
     }
+<<<<<<< HEAD
 >>>>>>> jensh
+=======
+>>>>>>> ysj
 }

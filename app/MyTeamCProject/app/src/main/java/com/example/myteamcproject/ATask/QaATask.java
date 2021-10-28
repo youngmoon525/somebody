@@ -1,12 +1,17 @@
 package com.example.myteamcproject.ATask;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 import static com.example.myteamcproject.Common.CommonMethod.qalist;
 =======
 import static com.example.myteamcproject.Common.CommonMethod.qalist;
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 >>>>>>> jensh
+=======
+import static com.example.myteamcproject.Common.CommonMethod.qalist;
+import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
+>>>>>>> ysj
 
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
@@ -69,10 +74,14 @@ public class QaATask extends AsyncTask<Void, Void, String> {
             builder.setCharset(Charset.forName("UTF-8"));
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             builder.addTextBody("category", "oto", ContentType.create("Multipart/related", "UTF-8"));
 =======
             builder.addTextBody("category", "QA", ContentType.create("Multipart/related", "UTF-8"));
 >>>>>>> jensh
+=======
+            builder.addTextBody("category", "QA", ContentType.create("Multipart/related", "UTF-8"));
+>>>>>>> ysj
 
 
             // 전송

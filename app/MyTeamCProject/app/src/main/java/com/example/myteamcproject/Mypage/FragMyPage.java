@@ -24,10 +24,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.myteamcproject.ATask.ExManageATask;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import com.example.myteamcproject.Common.CommonMethod;
 import com.example.myteamcproject.Community.FragComm;
 >>>>>>> jensh
+=======
+import com.example.myteamcproject.Common.CommonMethod;
+import com.example.myteamcproject.Community.FragComm;
+>>>>>>> ysj
 import com.example.myteamcproject.Exercise.ExerciseManageAdapter;
 import com.example.myteamcproject.Exercise.ExerciseManageAdapter2;
 import com.example.myteamcproject.Exercise.OnExerciseManageItemClickListener;
@@ -118,6 +123,9 @@ public class FragMyPage extends Fragment {
 
         // 반드시 생성해서 어댑터에 넘겨야 함
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ysj
         dtos = new ArrayList<>();
         dtos2 = new ArrayList<>();
 
@@ -138,27 +146,36 @@ public class FragMyPage extends Fragment {
         adapter6 = new ExerciseManageAdapter2(dtos2, activity, fragmentManager);
 
         // 어댑터에 ArrayList에 dto를 추가한다
+<<<<<<< HEAD
 =======
 
         FragmentManager fragmentManager = getParentFragmentManager();
         dtos = new ArrayList<>();
         dtos2 = new ArrayList<>();
 >>>>>>> jensh
+=======
+>>>>>>> ysj
         try{
 
             for (int i = 0; i <= explaylist.size() - 1; i++ ){
                 if (explaylist.get(i).getU_complete().equals("N")){
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ysj
                     adapter5.addDto(explaylist.get(i));
                 }//if
                 if(explaylist.get(i).getU_complete().equals("Y")){
                     adapter6.addDto(explaylist.get(i));
+<<<<<<< HEAD
 =======
                     dtos.add(explaylist.get(i));
                 }//if
                 if(explaylist.get(i).getU_complete().equals("Y")){
                     dtos2.add(explaylist.get(i));
 >>>>>>> jensh
+=======
+>>>>>>> ysj
                 }
             }//for
 
@@ -167,6 +184,7 @@ public class FragMyPage extends Fragment {
             e.getMessage();
             e.getStackTrace();
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         // 만든 어댑터를 리사이클러 뷰에 붙인다
@@ -195,6 +213,11 @@ public class FragMyPage extends Fragment {
         // 만든 어댑터를 리사이클러 뷰에 붙인다
        recyclerView_exm1.setAdapter(adapter5);
 >>>>>>> jensh
+=======
+
+        // 만든 어댑터를 리사이클러 뷰에 붙인다
+        recyclerView_exm1.setAdapter(adapter5);
+>>>>>>> ysj
         recyclerView_exm2.setAdapter(adapter6);
 
         // 6.어댑터에 있는 clickListener를 이용해 클릭한 위치에 dto를 가져온다.

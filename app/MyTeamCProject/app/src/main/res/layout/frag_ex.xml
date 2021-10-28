@@ -31,9 +31,12 @@
             android:layout_height="match_parent" />
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> jensh
+=======
+>>>>>>> ysj
         </LinearLayout>
 
     </ScrollView>
@@ -43,10 +46,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:layout_marginTop="350dp"
 =======
         android:layout_marginTop="400dp"
 >>>>>>> jensh
+=======
+        android:layout_marginTop="350dp"
+>>>>>>> ysj
         android:backgroundTint="#050505"
         android:text="운동시작"
         app:layout_constraintEnd_toEndOf="parent"

@@ -19,6 +19,7 @@
         android:text="전문가와의 상담" />
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Button
         android:id="@+id/btnAdminChat"
         android:layout_width="match_parent"
@@ -27,4 +28,6 @@
 
 =======
 >>>>>>> jensh
+=======
+>>>>>>> ysj
 </LinearLayout>

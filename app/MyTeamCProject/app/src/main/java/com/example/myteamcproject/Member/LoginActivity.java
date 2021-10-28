@@ -25,6 +25,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.myteamcproject.ATask.KakaoIdChk;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import com.example.myteamcproject.ATask.KakaoAtask;
 import com.example.myteamcproject.ATask.KakaoLogin;
 import com.example.myteamcproject.ATask.MemberATask;
@@ -33,6 +34,11 @@ import com.example.myteamcproject.ATask.KakaoJoin;
 import com.example.myteamcproject.ATask.KakaoLogin;
 import com.example.myteamcproject.ATask.LoginSelect;
 >>>>>>> jensh
+=======
+import com.example.myteamcproject.ATask.KakaoJoin;
+import com.example.myteamcproject.ATask.KakaoLogin;
+import com.example.myteamcproject.ATask.LoginSelect;
+>>>>>>> ysj
 import com.example.myteamcproject.ATask.NaverIdChk;
 import com.example.myteamcproject.ATask.NaverJoin;
 import com.example.myteamcproject.ATask.NaverLogin;
@@ -168,10 +174,14 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             }else {
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 KakaoAtask kakaoJoin = new KakaoAtask(kakao_id, kakao_name);
 =======
                                 KakaoJoin kakaoJoin = new KakaoJoin(kakao_id, kakao_name);
 >>>>>>> jensh
+=======
+                                KakaoJoin kakaoJoin = new KakaoJoin(kakao_id, kakao_name);
+>>>>>>> ysj
                                 try {
                                     state = kakaoJoin.execute().get();
                                 }catch (Exception e){
@@ -225,6 +235,7 @@ public class LoginActivity extends AppCompatActivity {
                     String password = etpassword.getText().toString();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                     MemberATask aTask = new MemberATask("login",id, password);
                     try {
                         aTask.execute().get();
@@ -233,6 +244,11 @@ public class LoginActivity extends AppCompatActivity {
                     try {
                         loginSelect.execute().get();
 >>>>>>> jensh
+=======
+                    LoginSelect loginSelect = new LoginSelect(id, password);
+                    try {
+                        loginSelect.execute().get();
+>>>>>>> ysj
                     } catch (ExecutionException e) {
                         e.getMessage();
                     } catch (InterruptedException e) {
@@ -456,9 +472,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> jensh
+=======
+>>>>>>> ysj
     private void checkDangerousPermissions() {
         String[] permissions = {
                 Manifest.permission.ACCESS_NETWORK_STATE,
