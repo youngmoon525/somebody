@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.myteamcproject.ATask.ExerciseATask;
 import com.example.myteamcproject.ATask.QaATask;
 import com.example.myteamcproject.MainActivity;
 import com.example.myteamcproject.R;

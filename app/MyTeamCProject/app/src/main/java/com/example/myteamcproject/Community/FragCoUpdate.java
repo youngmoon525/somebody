@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.myteamcproject.ATask.CommunityATask;
+import com.example.myteamcproject.Exercise.FragChat;
 import com.example.myteamcproject.MainActivity;
 import com.example.myteamcproject.R;
 
@@ -71,7 +72,7 @@ public class FragCoUpdate extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                FragChat fragChat = new FragChat();
+                FragComm fragChat = new FragComm();
                 int co_update_c = coDto.c_numb;
                 Log.d(TAG, "onClick_update: " + co_update_c);
 
