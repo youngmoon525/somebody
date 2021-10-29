@@ -1,7 +1,5 @@
 package com.example.myteamcproject.ServiceCenter;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 
@@ -11,62 +9,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-=======
-=======
->>>>>>> ysj
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-<<<<<<< HEAD
->>>>>>> jensh
-=======
->>>>>>> ysj
 import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-<<<<<<< HEAD
-<<<<<<< HEAD
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myteamcproject.R;
 import com.google.firebase.database.ChildEventListener;
-=======
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.myteamcproject.R;
->>>>>>> jensh
-=======
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.myteamcproject.R;
->>>>>>> ysj
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-=======
-import com.google.firebase.database.ValueEventListener;
-
-import java.text.SimpleDateFormat;
->>>>>>> jensh
-=======
-import com.google.firebase.database.ValueEventListener;
-
-import java.text.SimpleDateFormat;
->>>>>>> ysj
 
 
 public class FragMyChat extends Fragment {
@@ -76,8 +38,6 @@ public class FragMyChat extends Fragment {
     private String chatRoomUid; //채팅방 하나 id
     private String myuid;       //나의 id
     private String destUid;     //상대방 uid
-<<<<<<< HEAD
-<<<<<<< HEAD
     private EditText edt_chat;
     private Button btn_send;
 
@@ -88,20 +48,10 @@ public class FragMyChat extends Fragment {
     private List<UserDTO> chatDTOS;
 
 
-=======
-
-    private RecyclerView recyclerView;
->>>>>>> jensh
-=======
-
-    private RecyclerView recyclerView;
->>>>>>> ysj
     private Button button;
     private EditText editText;
 
     private FirebaseDatabase firebaseDatabase;
-<<<<<<< HEAD
-<<<<<<< HEAD
     private DatabaseReference myReference;
     private DatabaseReference destReference;
 
@@ -147,6 +97,13 @@ public class FragMyChat extends Fragment {
                     myReference.push().setValue(dto);
                     destReference.push().setValue(dto);
                     edt_chat.setText("");
+                    recyclerView.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            // Call smooth scroll
+                            recyclerView.smoothScrollToPosition(adapter.getItemCount() - 1);
+                        }
+                    });
                 }
             }
         });
@@ -163,6 +120,9 @@ public class FragMyChat extends Fragment {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         if(loginDTO.getAdmin().equals("Y")){
+            //database.getReference().orderByChild("조회조건이 될 컬림").equalTo("값비교");
+            //firebase CRUD , INSERT , SELECT ,
+
             myReference = database.getReference("chatroom").child(destUid + "Xadmin");
             destReference = database.getReference("chatroom").child(destUid);
         }else if(loginDTO.getAdmin().equals("N")){
@@ -199,61 +159,8 @@ public class FragMyChat extends Fragment {
             }
         });
 
-
-
-        return view;
-    }//onCreateView
-=======
-=======
->>>>>>> ysj
-
-    private User destUser;
-
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyy.MM.dd HH:mm");
-
-    public void onBackPressed() {
-
-    }
-    
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frag_account, container, false);
-
-        
         return view;
     }//onCreateView
 
-    public void basicReadWrite() {
-        // [START write_message]
-        // Write a message to the database
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
 
-        myRef.setValue("Hello, World!");
-        // [END write_message]
-
-        // [START read_message]
-        // Read from the database
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-                Log.d(TAG, "Value is: " + value);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
-        // [END read_message]
-    }
-<<<<<<< HEAD
->>>>>>> jensh
-=======
->>>>>>> ysj
 }

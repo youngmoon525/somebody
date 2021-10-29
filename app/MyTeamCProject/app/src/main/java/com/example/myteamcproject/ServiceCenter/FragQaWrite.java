@@ -1,4 +1,4 @@
-package com.example.myteamcproject.Community;
+package com.example.myteamcproject.ServiceCenter;
 
 
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
@@ -25,23 +25,25 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.myteamcproject.ATask.CommunityATask;
+import com.example.myteamcproject.ATask.QaATask;
 import com.example.myteamcproject.Common.CommonMethod;
+import com.example.myteamcproject.Community.FragComm;
 import com.example.myteamcproject.Exercise.FragChat;
 import com.example.myteamcproject.MainActivity;
 import com.example.myteamcproject.R;
 
 import java.util.concurrent.ExecutionException;
 
-public class FragWrite extends Fragment {
+public class FragQaWrite extends Fragment {
 
-    private static final String TAG = "FragWrite";
+    private static final String TAG = "FragQaWrite";
 
     private final int GET_GALLERY_IMAGE = 200;
     public int reqPicCode = 1004;
 
     private View view;
     private Button submit, reset;
-    private EditText co_title, co_content;
+    private EditText qa_title, qa_content;
     private ImageView imgfile;
     public String imageRealPathA, imageDbPathA;
     MainActivity activity;
@@ -51,12 +53,12 @@ public class FragWrite extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
-        view = inflater.inflate(R.layout.frag_write, container, false);
-        submit = view.findViewById(R.id.submit);
-        reset = view.findViewById(R.id.reset);
-        co_title = view.findViewById(R.id.cod_title);
-        co_content = view.findViewById(R.id.cod_content);
-        imgfile = view.findViewById(R.id.imgfile);
+        view = inflater.inflate(R.layout.frag_qawrite, container, false);
+        submit = view.findViewById(R.id.qa_wsubmit);
+        reset = view.findViewById(R.id.qa_wreset);
+        qa_title = view.findViewById(R.id.qa_wtitle);
+        qa_content = view.findViewById(R.id.qa_wcontent);
+        imgfile = view.findViewById(R.id.qa_wimgfile);
 
         activity = new MainActivity();
 
@@ -65,10 +67,10 @@ public class FragWrite extends Fragment {
             public void onClick(View view) {
 
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                FragComm fragChat = new FragComm();
+                FragQA fragQA = new FragQA();
 
-                String co_title_c = co_title.getText().toString();
-                String co_content_c = co_content.getText().toString();
+                String co_title_c = qa_title.getText().toString();
+                String co_content_c = qa_content.getText().toString();
 
                 Log.d(TAG, "onClick: " + co_title_c + ", " + co_content_c);
 
@@ -77,17 +79,17 @@ public class FragWrite extends Fragment {
                 } else if (co_content_c.trim().equals("")) {
                     Toast.makeText(view.getContext(), "내용이 입력되지 않았습니다.", Toast.LENGTH_LONG).show();
                 } else {
-                    CommunityATask communityATask = new CommunityATask("insert", co_title_c, co_content_c, imageDbPathA, loginDTO.getId(), imageRealPathA);
+                    QaATask qaATask = new QaATask("insert", co_title_c, co_content_c, imageDbPathA, loginDTO.getId(), imageRealPathA);
 
                     try {
-                        communityATask.execute().get();
+                        qaATask.execute().get();
                     } catch (ExecutionException e) {
                         e.getMessage();
                     } catch (InterruptedException e) {
                         e.getMessage();
                     }//try & catch
 
-                    transaction.replace(R.id.main_frag, fragChat);
+                    transaction.replace(R.id.main_frag, fragQA);
                     transaction.commit();
                 }//if
             }//onClick
@@ -97,8 +99,8 @@ public class FragWrite extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                FragChat fragChat = new FragChat();
-                transaction.replace(R.id.main_frag, fragChat);
+                FragQA fragQA = new FragQA();
+                transaction.replace(R.id.main_frag, fragQA);
                 transaction.commit();
             }
         });
@@ -162,6 +164,5 @@ public class FragWrite extends Fragment {
         cursor.close();
         return res;
     }//getPathFromURI
-
 
 }//class

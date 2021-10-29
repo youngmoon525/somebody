@@ -1,37 +1,9 @@
 package com.example.myteamcproject;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
-=======
-import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
-import androidx.annotation.NonNull;
-=======
-import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
->>>>>>> ysj
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-<<<<<<< HEAD
->>>>>>> jensh
 
 import android.Manifest;
-=======
-
-import android.Manifest;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothSocket;
-import android.content.Context;
-import android.content.DialogInterface;
->>>>>>> ysj
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -43,8 +15,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -54,18 +24,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-=======
->>>>>>> jensh
-=======
->>>>>>> ysj
 import com.bumptech.glide.Glide;
 import com.example.myteamcproject.Common.FragHome;
 import com.example.myteamcproject.Community.FragComm;
 import com.example.myteamcproject.Gift.FragGift;
 import com.example.myteamcproject.Member.JoinActivity;
 import com.example.myteamcproject.Member.LoginActivity;
-<<<<<<< HEAD
-<<<<<<< HEAD
 import com.example.myteamcproject.Mypage.FragCartList;
 import com.example.myteamcproject.Mypage.FragMfood;
 import com.example.myteamcproject.Mypage.FragMyPage;
@@ -73,46 +37,11 @@ import com.example.myteamcproject.Mypage.FrageMyAttr;
 import com.example.myteamcproject.ServiceCenter.FragService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-=======
-=======
->>>>>>> ysj
-import com.example.myteamcproject.Member.MemberDTO;
-import com.example.myteamcproject.Mypage.FragCartList;
-import com.example.myteamcproject.Mypage.FragMfood;
-import com.example.myteamcproject.Mypage.FragMyPage;
-import com.example.myteamcproject.ServiceCenter.FragService;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
-import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
-<<<<<<< HEAD
-
->>>>>>> jensh
-=======
-import static com.example.myteamcproject.Common.CommonMethod.inputStream;
-import static com.example.myteamcproject.Common.CommonMethod.mOutputStream;
-
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
-
->>>>>>> ysj
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     Button btnLogin, btnJoin, btnLogout, btnMypage, btnCart, btnScenter, btnmfood, btnAttu;
-=======
-    Button btnLogin, btnJoin, btnLogout, btnMypage, btnCart, btnScenter, btnmfood;
->>>>>>> jensh
-=======
-    Button btnLogin, btnJoin, btnLogout, btnMypage, btnCart, btnScenter, btnmfood;
->>>>>>> ysj
 
     //바텀 네비게이션 뷰
     private BottomNavigationView bottomNavigationView;
@@ -127,36 +56,14 @@ public class MainActivity extends AppCompatActivity {
     private FragComm frag_chat;
     private FragGift frag_gift;
     private FragMyPage fragMyPage;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    private ImageView imgProfile;
-
-=======
-
     private ImageView imgProfile;
 
     public Bundle mBundle = null;
 
->>>>>>> jensh
-=======
-
-    private ImageView imgProfile;
-
-
-
->>>>>>> ysj
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> jensh
-=======
-
->>>>>>> ysj
         checkDangerousPermissions();
 
         //프래그먼트 객체체생성
@@ -164,15 +71,7 @@ public class MainActivity extends AppCompatActivity {
         frag_chat = new FragComm();
         frag_gift = new FragGift();
         fragMyPage = new FragMyPage();
-<<<<<<< HEAD
-<<<<<<< HEAD
         setFrag(frag_home); // 첫 프래그먼트 화면을 무엇으로 지정해줄 것인지 선택.
-=======
-        setFrag(frag_home, null); // 첫 프래그먼트 화면을 무엇으로 지정해줄 것인지 선택.
->>>>>>> jensh
-=======
-        setFrag(frag_home); // 첫 프래그먼트 화면을 무엇으로 지정해줄 것인지 선택.
->>>>>>> ysj
 
         imgProfile = findViewById(R.id.imgProfile);
 
@@ -180,15 +79,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(loginDTO != null){
-<<<<<<< HEAD
-<<<<<<< HEAD
                     setFrag(fragMyPage);
-=======
-                    setFrag(fragMyPage, null);
->>>>>>> jensh
-=======
-                    setFrag(fragMyPage);
->>>>>>> ysj
                 }else{
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
@@ -207,13 +98,7 @@ public class MainActivity extends AppCompatActivity {
         btnMypage = drawerView.findViewById(R.id.btnMypage);
         btnCart = drawerView.findViewById(R.id.btnCart);
         btnmfood = drawerView.findViewById(R.id.btnmfood);
-<<<<<<< HEAD
-<<<<<<< HEAD
         btnAttu = drawerView.findViewById(R.id.btnAttu);
-=======
->>>>>>> jensh
-=======
->>>>>>> ysj
 
         //drawerLayout.setDrawerListener(listener);
         drawer.addDrawerListener(listener);
@@ -242,10 +127,6 @@ public class MainActivity extends AppCompatActivity {
                 switch (itemid)
                 {
                     case R.id.item_home:
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ysj
                         setFrag(frag_home);
                         break;
                     case R.id.item_chat:
@@ -253,18 +134,6 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.item_cart:
                         setFrag(frag_gift);
-<<<<<<< HEAD
-=======
-                        setFrag(frag_home, null);
-                        break;
-                    case R.id.item_chat:
-                        setFrag(frag_chat, null);
-                        break;
-                    case R.id.item_cart:
-                        setFrag(frag_gift, null);
->>>>>>> jensh
-=======
->>>>>>> ysj
                         break;
                     case R.id.item_account:
                         drawer.openDrawer(drawerView);
@@ -274,17 +143,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-<<<<<<< HEAD
     }//onCreate
 
     // 프레그먼트 교체가 일어나는 실행문.
-<<<<<<< HEAD
-=======
-
-    }//onCreate
-
-    // 프레그먼트 교체가 일어나는 실행문.
->>>>>>> ysj
     private void setFrag(Fragment fragment)
     {
             fragmentManager = getSupportFragmentManager();
@@ -292,8 +153,8 @@ public class MainActivity extends AppCompatActivity {
 
             fragmentTransaction.replace(R.id.main_frag, fragment);
             fragmentTransaction.commit();
-<<<<<<< HEAD
-=======
+    }//setFrag
+
     public void setFrag(Fragment fragment, Bundle bundle)
     {
         this.mBundle = bundle;
@@ -303,9 +164,6 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentTransaction.replace(R.id.main_frag, fragment);
         fragmentTransaction.commit();
->>>>>>> jensh
-=======
->>>>>>> ysj
     }//setFrag
 
     DrawerLayout.DrawerListener listener = new DrawerLayout.DrawerListener() {
@@ -366,21 +224,14 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     FragService fragService = new FragService();
-<<<<<<< HEAD
-<<<<<<< HEAD
                     setFrag(fragService);
-=======
-                    setFrag(fragService, null);
->>>>>>> jensh
-=======
-                    setFrag(fragService);
->>>>>>> ysj
                 }
             });
 
             btnCart.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     fragmentManager = getSupportFragmentManager();
                     fragmentTransaction = fragmentManager.beginTransaction();
                     FragCartList fragCartList = new FragCartList();
@@ -393,8 +244,6 @@ public class MainActivity extends AppCompatActivity {
             btnmfood.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                     FragMfood fragMfood = new FragMfood();
                     setFrag(fragMfood);
                 }
@@ -407,14 +256,6 @@ public class MainActivity extends AppCompatActivity {
 
                     setFrag(frageMyAttr);
 
-=======
-                    FragMfood frag_Mfood = new FragMfood();
-                    setFrag(frag_Mfood, null);
->>>>>>> jensh
-=======
-                    FragMfood frag_Mfood = new FragMfood();
-                    setFrag(frag_Mfood);
->>>>>>> ysj
                 }
             });
 
@@ -443,10 +284,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ysj
     @Override
     protected void onResume() {
         super.onResume();
@@ -463,41 +300,22 @@ public class MainActivity extends AppCompatActivity {
             btnLogin.setVisibility(View.GONE);
             btnJoin.setVisibility(View.GONE);
             btnmfood.setVisibility(View.VISIBLE);
-<<<<<<< HEAD
-<<<<<<< HEAD
             btnAttu.setVisibility(View.VISIBLE);
-=======
->>>>>>> jensh
         }//if dto null
     }//onResume
 
     //위험권한
-=======
-        }//if dto null
-    }//onResume
-
-    //위험권한--------------------------------------------------------------------------------------
->>>>>>> ysj
     private void checkDangerousPermissions() {
         String[] permissions = {
                 Manifest.permission.ACCESS_NETWORK_STATE,
                 Manifest.permission.ACCESS_WIFI_STATE,
-<<<<<<< HEAD
-<<<<<<< HEAD
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
-=======
->>>>>>> jensh
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.CAMERA
-=======
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.CAMERA,
                 Manifest.permission.BLUETOOTH,
                 Manifest.permission.BLUETOOTH_ADMIN
->>>>>>> ysj
         };
 
         int permissionCheck = PackageManager.PERMISSION_GRANTED;

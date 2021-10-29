@@ -1,13 +1,5 @@
 package com.example.myteamcproject.Exercise;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-import static com.example.myteamcproject.Common.CommonMethod.exlist;
-=======
->>>>>>> jensh
-=======
-import static com.example.myteamcproject.Common.CommonMethod.exlist;
->>>>>>> ysj
 import static com.example.myteamcproject.Common.CommonMethod.explaylist;
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
@@ -15,14 +7,6 @@ import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
-<<<<<<< HEAD
-<<<<<<< HEAD
-import android.os.Bundle;
-=======
->>>>>>> jensh
-=======
-import android.os.Bundle;
->>>>>>> ysj
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
@@ -36,14 +20,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
-<<<<<<< HEAD
-<<<<<<< HEAD
-import androidx.fragment.app.FragmentTransaction;
-=======
->>>>>>> jensh
-=======
-import androidx.fragment.app.FragmentTransaction;
->>>>>>> ysj
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -126,14 +102,6 @@ public class ExerciseAdapter extends
     }//onBindViewHolder
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> jensh
-=======
-
->>>>>>> ysj
     @Override
     public int getItemCount() {
         return dtos.size();
@@ -186,14 +154,8 @@ public class ExerciseAdapter extends
             tv_ex2 = itemView.findViewById(R.id.tv_ex2);
             chkEx=itemView.findViewById(R.id.chkEx);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             explaylist = new ArrayList<>();
-=======
->>>>>>> jensh
-=======
-            explaylist = new ArrayList<>();
->>>>>>> ysj
+
             if(loginDTO != null){
                 chkEx.setVisibility(View.VISIBLE);
             }else {
@@ -203,18 +165,6 @@ public class ExerciseAdapter extends
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     try{
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    if (isChecked){
-                        chkEx.setText("체크됨");
-                        explaylist.add(new UserExerciseDTO(getAdapterPosition(), loginDTO.getId(), tv_name.getText().toString(), getTime().toString()
-                        , 0, 0, 0, "N", "Y"));
-                    }
-                    }catch (IndexOutOfBoundsException e){
-                        if(explaylist.size() > 0){
-=======
-=======
->>>>>>> ysj
                         if (isChecked){
                             chkEx.setText("체크됨");
                             explaylist.add(new UserExerciseDTO(getAdapterPosition(), loginDTO.getId(), tv_name.getText().toString(), getTime().toString()
@@ -234,31 +184,14 @@ public class ExerciseAdapter extends
                     }catch (IndexOutOfBoundsException e){
                         Log.d(TAG, "onCheckedChanged: " + e.getMessage());
                         /*if(explaylist.size() > 0){
-<<<<<<< HEAD
->>>>>>> jensh
-=======
->>>>>>> ysj
                             explaylist.remove(getAdapterPosition());
                             chkEx.setText("");
                         }else{
                             explaylist.clear();
-<<<<<<< HEAD
-<<<<<<< HEAD
-                        }//if
-                }//try&catch
-            }//onCheckedChanged
-     });//setOnCheckedChangeListener
-=======
-=======
->>>>>>> ysj
                         }//if*/
                     }//try&catch
                 }//onCheckedChanged
             });//setOnCheckedChangeListener
-<<<<<<< HEAD
->>>>>>> jensh
-=======
->>>>>>> ysj
 
             // 2.화면에 clickListener 를 달아준다.
             itemView.setOnClickListener(new View.OnClickListener() {

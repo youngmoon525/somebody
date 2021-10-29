@@ -3,14 +3,6 @@ package com.example.myteamcproject.Community;
 import static com.example.myteamcproject.Common.CommonMethod.coDto;
 import static com.example.myteamcproject.Common.CommonMethod.colist;
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
->>>>>>> jensh
-=======
-import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
->>>>>>> ysj
 
 import android.content.Intent;
 import android.net.Uri;
@@ -26,43 +18,17 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import androidx.core.content.FileProvider;
->>>>>>> jensh
-=======
-import androidx.core.content.FileProvider;
->>>>>>> ysj
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 import com.example.myteamcproject.ATask.CommunityATask;
-<<<<<<< HEAD
-<<<<<<< HEAD
 import com.example.myteamcproject.Exercise.FragChat;
-=======
->>>>>>> jensh
-=======
->>>>>>> ysj
 import com.example.myteamcproject.R;
 
 import java.io.File;
 import java.io.IOException;
-<<<<<<< HEAD
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
->>>>>>> jensh
-=======
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
->>>>>>> ysj
 import java.util.concurrent.ExecutionException;
 
 public class FragCoView extends Fragment {
@@ -117,15 +83,7 @@ public class FragCoView extends Fragment {
                 @Override
                 public void onClick(View view) {
                     FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-<<<<<<< HEAD
-<<<<<<< HEAD
                     FragComm fragChat = new FragComm();
-=======
-                    FragChat fragChat = new FragChat();
->>>>>>> jensh
-=======
-                    FragChat fragChat = new FragChat();
->>>>>>> ysj
                     int co_delete_c = coDto.c_numb;
                     Log.d(TAG, "onClick: " + co_delete_c);
                     CommunityAdapter adapter = new CommunityAdapter((ArrayList<CommunityDTO>) colist, getContext(), getParentFragmentManager());

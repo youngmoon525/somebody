@@ -1,13 +1,11 @@
 package com.example.myteamcproject.ATask;
 
-import static com.example.myteamcproject.Common.CommonMethod.explaylist;
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.myteamcproject.Common.CommonMethod;
 import com.example.myteamcproject.Exercise.UserExerciseDTO;
 
 import org.apache.http.HttpEntity;
@@ -109,7 +107,7 @@ public class ExInsertATask extends AsyncTask<Void, Void, String> {
 
         }
 
-        return "com";
+        return body;
     }
 
     // doInBackground 끝난후에 오는부분

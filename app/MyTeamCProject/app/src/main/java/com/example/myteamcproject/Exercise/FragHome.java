@@ -30,8 +30,18 @@ public class FragHome extends Fragment {
     ExerciseTypeAdapter adapter1;
     ArrayList<ExerciseDTO> dtos;
 
+    FragmentManager fragmentManager;
+
     // 자신이 활동하는 Activity 찾기
     MainActivity activity;
+
+    public FragHome(){
+
+    }
+
+    public FragHome(FragmentManager fragmentManager) {
+        this.fragmentManager = fragmentManager;
+    }
 
     @Nullable
     @Override

@@ -1,4 +1,4 @@
-package com.example.myteamcproject.Community;
+package com.example.myteamcproject.ServiceCenter;
 
 import static com.example.myteamcproject.Common.CommonMethod.coDto;
 import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
@@ -17,13 +17,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.myteamcproject.ATask.CommunityATask;
+import com.example.myteamcproject.Community.FragComm;
 import com.example.myteamcproject.Exercise.FragChat;
 import com.example.myteamcproject.MainActivity;
 import com.example.myteamcproject.R;
 
 import java.util.concurrent.ExecutionException;
 
-public class FragCoUpdate extends Fragment {
+public class FragQAUpdate extends Fragment {
 
     private static final String TAG = "FragCoUpdate";
 
@@ -73,7 +74,7 @@ public class FragCoUpdate extends Fragment {
             public void onClick(View view) {
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 FragComm fragChat = new FragComm();
-                int co_update_c = coDto.c_numb;
+                int co_update_c = coDto.getC_numb();
                 Log.d(TAG, "onClick_update: " + co_update_c);
 
                 String cou_title_c = cou_title.getText().toString();

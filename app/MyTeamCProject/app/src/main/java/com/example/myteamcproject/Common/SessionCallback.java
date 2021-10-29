@@ -4,15 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 import com.example.myteamcproject.ATask.KakaoAtask;
-=======
-import com.example.myteamcproject.ATask.KakaoJoin;
->>>>>>> jensh
-=======
-import com.example.myteamcproject.ATask.KakaoJoin;
->>>>>>> ysj
 import com.example.myteamcproject.MainActivity;
 import com.example.myteamcproject.Member.MemberDTO;
 import com.kakao.auth.ISessionCallback;
@@ -81,15 +73,7 @@ public class SessionCallback implements ISessionCallback {
 
                     /*카카오 로그인을 한 적이 없다면? -> DB에 저장해야한다.*/
                     if(KakaoLoginDTO == null){
-<<<<<<< HEAD
-<<<<<<< HEAD
                         KakaoAtask kakaoJoin = new KakaoAtask(kakao_id,kakao_name);
-=======
-                        KakaoJoin kakaoJoin = new KakaoJoin(kakao_id,kakao_name);
->>>>>>> jensh
-=======
-                        KakaoJoin kakaoJoin = new KakaoJoin(kakao_id,kakao_name);
->>>>>>> ysj
                         try{
                             kakaoJoin.execute().get();
                         }catch (Exception e){

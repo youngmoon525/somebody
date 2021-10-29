@@ -13,15 +13,7 @@ buildscript {
     }
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         task clean(type: Delete) {
-=======
-task clean(type: Delete) {
->>>>>>> jensh
-=======
-task clean(type: Delete) {
->>>>>>> ysj
     delete rootProject.buildDir
 }

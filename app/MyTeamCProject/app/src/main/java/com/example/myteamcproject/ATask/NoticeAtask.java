@@ -1,14 +1,16 @@
 package com.example.myteamcproject.ATask;
 
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
-import static com.example.myteamcproject.Common.CommonMethod.qalist;
 import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
+import static com.example.myteamcproject.Common.CommonMethod.noticeList;
+import static com.example.myteamcproject.Common.CommonMethod.noticeDTO;
 
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.myteamcproject.Community.CommunityDTO;
+import com.example.myteamcproject.Mypage.FoodDTO;
+import com.example.myteamcproject.Notice.NoticeDTO;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -17,27 +19,23 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QaATask extends AsyncTask<Void, Void, String> {
+public class NoticeAtask extends AsyncTask<Void, Void, String> {
 
-    private static final String TAG = "QaATask";
+    private static final String TAG = "NoticeAtask";
 
-    String reqC = "", id, imageRealPathA;
-    String qa_title, qa_content, imageDbPathA;
-
-
+    String reqC = "";
+    int n_numb;
     // 반드시 선언해야 할것들 : 무조건 해야함 복,붙
     HttpClient httpClient;  // 클라이언트 객체
     HttpPost httpPost;      // 클라이언트에 붙일 본문
@@ -45,21 +43,17 @@ public class QaATask extends AsyncTask<Void, Void, String> {
     HttpEntity httpEntity;  // 응답 내용
     String body;
 
-    public QaATask(){
+    public NoticeAtask(){
 
     }
 
-    public QaATask(String reqcode){
-        this.reqC = reqcode;
+    public NoticeAtask(String reqcode){
+
     }//QaATask
 
-    public QaATask(String reqcode, String co_title_c, String co_content_c, String imageDbPathA, String id, String imageRealPathA) {
+    public NoticeAtask(String reqcode, int n_numb) {
         this.reqC = reqcode;
-        this.qa_title = co_title_c;
-        this.qa_content = co_content_c;
-        this.imageDbPathA = imageDbPathA;
-        this.id = id;
-        this.imageRealPathA = imageRealPathA;
+        this.n_numb = n_numb;
     }
 
     // doInBackground 하기전에 설정 및 초기화
@@ -77,25 +71,12 @@ public class QaATask extends AsyncTask<Void, Void, String> {
             builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
             builder.setCharset(Charset.forName("UTF-8"));
 
-            builder.addTextBody("id", loginDTO.getId(), ContentType.create("Multipart/related", "UTF-8"));
-            builder.addTextBody("category", "oto", ContentType.create("Multipart/related", "UTF-8"));
-
-            if (reqC.equals("insert")) {
-                // 문자열 및 데이터 추가하기
-                builder.addTextBody("title", qa_title, ContentType.create("Multipart/related", "UTF-8"));
-
-                builder.addTextBody("content", qa_content, ContentType.create("Multipart/related", "UTF-8"));
-                builder.addTextBody("writer", loginDTO.getId(), ContentType.create("Multipart/related", "UTF-8"));
-                if (imageRealPathA != null) {
-                    builder.addPart("imgpath", new FileBody(new File(imageRealPathA)));
-                }//if
-                builder.addTextBody("c_tab", "secret", ContentType.create("Multipart/related", "UTF-8"));
-            }//if
             // 전송
-
-            String postURL = ipConfig + "/qalist.sc";
-            if(reqC.equals("insert")){
-                postURL = ipConfig + "/insert.sc";
+            String postURL = ipConfig + "/Notcielist.no";
+            if(reqC.equals("readcount")){
+                builder.addTextBody("id", loginDTO.getId(), ContentType.create("Multipart/related", "UTF-8"));
+                builder.addTextBody("numb", String.valueOf(n_numb), ContentType.create("Multipart/related", "UTF-8"));
+                postURL = ipConfig + "/NoticeReadcount.no";
             }//if
 
 
@@ -108,7 +89,12 @@ public class QaATask extends AsyncTask<Void, Void, String> {
             body = EntityUtils.toString(httpResponse.getEntity());
 
             // 하나의 오브젝트 가져올때
-            qalist = (List<CommunityDTO>) readMessage(body);
+            if(reqC.equals("readcount")){
+                noticeDTO = makedto(body);
+            }else{
+                noticeList = readMessage(body);
+            }
+
 
         } catch (IOException e) {
             Log.d(TAG, "doInBackground: " + e.getStackTrace() + ", msg : " + e.getMessage());
@@ -139,25 +125,28 @@ public class QaATask extends AsyncTask<Void, Void, String> {
         Log.d("main:", "onPostExecute: result => " + result);
     }
 
-    public List<CommunityDTO> readMessage(String body) throws IOException {
-        List<CommunityDTO> list = new ArrayList<CommunityDTO>();
+    public List<NoticeDTO> readMessage(String body) throws IOException {
+        List<NoticeDTO> list = new ArrayList<NoticeDTO>();
         try {
             JSONObject jobject = new JSONObject(body);
             JSONArray jArray = jobject.getJSONArray("list");
             for(int i=0; i<jArray.length();i++) {
                 JSONObject row = jArray.getJSONObject(i);
-                CommunityDTO dto = new CommunityDTO();
-                dto.setC_numb(Integer.parseInt(row.getString("c_numb")));
-                dto.setC_title(row.getString("c_title"));
-                dto.setC_content(row.getString("c_content"));
-                dto.setC_writer(row.getString("c_writer"));
-                dto.setC_date(row.getString("c_date"));
-                dto.setC_readcount(Integer.parseInt(row.getString("c_readcount")));
-                if(!row.isNull("c_filename")){
-                    dto.setC_filename(row.getString("c_filename"));
-                    dto.setC_filepath(row.getString("c_filepath"));
+                NoticeDTO dto = new NoticeDTO();
+                dto.setN_numb(Integer.parseInt(row.getString("n_numb")));
+                dto.setN_title(row.getString("n_title"));
+                dto.setN_content(row.getString("n_content"));
+                dto.setN_writer((row.getString("n_writer")));
+                dto.setN_date(row.getString("n_date"));
+                dto.setN_readcount(Integer.parseInt(row.getString("n_readcount")));
+                if(!row.isNull("n_filename")){
+                    dto.setN_filename(row.getString("n_filename"));
+                    dto.setN_filepath(row.getString("n_filepath"));
                 }
-                dto.setC_category(row.getString("c_category"));
+                if(!row.isNull("n_important")){
+                    dto.setN_important(row.getString("n_important"));
+                }
+
                 list.add(dto);
             }
 
@@ -171,5 +160,32 @@ public class QaATask extends AsyncTask<Void, Void, String> {
         return list;
 
     }
+
+    public NoticeDTO makedto(String body) throws IOException {
+        NoticeDTO dto = null;
+        try {
+            JSONObject row = new JSONObject(body);
+            dto = new NoticeDTO();
+            dto.setN_numb(Integer.parseInt(row.getString("n_numb")));
+            dto.setN_title(row.getString("n_title"));
+            dto.setN_content(row.getString("n_content"));
+            dto.setN_writer((row.getString("n_writer")));
+            dto.setN_date(row.getString("n_date"));
+            dto.setN_readcount(Integer.parseInt(row.getString("n_readcount")));
+            if(!row.isNull("n_filename")){
+                dto.setN_filename(row.getString("n_filename"));
+                dto.setN_filepath(row.getString("n_filepath"));
+            }
+            if(!row.isNull("n_important")){
+                dto.setN_important(row.getString("n_important"));
+            }
+        } catch (JSONException e) {
+            Log.d(TAG, "readMessage: " + e.getStackTrace() + ", msg : " + e.getMessage());
+        }
+        // 핸들러에게 메시지를 요청
+//        Log.d("main:", "readMessage: " + dto.getId() );
+
+        return dto;
+    }//makedto
 
 }

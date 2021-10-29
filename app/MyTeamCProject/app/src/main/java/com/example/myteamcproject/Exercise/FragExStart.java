@@ -1,24 +1,15 @@
 package com.example.myteamcproject.Exercise;
 
-<<<<<<< HEAD
-import static com.example.myteamcproject.Common.CommonMethod.exlist;
-import static com.example.myteamcproject.Common.CommonMethod.explaylist;
-import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
-import static com.example.myteamcproject.Common.CommonMethod.tonext;
-
-import android.os.Bundle;
-import android.os.CountDownTimer;
-=======
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 import static com.example.myteamcproject.Common.CommonMethod.exlist;
 import static com.example.myteamcproject.Common.CommonMethod.explaylist;
 import static com.example.myteamcproject.Common.CommonMethod.inputStream;
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
+import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
 import static com.example.myteamcproject.Common.CommonMethod.mBluetoothAdapter;
-import static com.example.myteamcproject.Common.CommonMethod.tonext;
 import static com.example.myteamcproject.Common.CommonMethod.mOutputStream;
-import static com.example.myteamcproject.Common.CommonMethod.mStrDelimiter;
+import static com.example.myteamcproject.Common.CommonMethod.tonext;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -30,54 +21,23 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
->>>>>>> ysj
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-<<<<<<< HEAD
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-=======
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
->>>>>>> ysj
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import com.example.myteamcproject.MainActivity;
->>>>>>> jensh
-import com.example.myteamcproject.R;
-
-public class FragExStart extends Fragment implements View.OnClickListener {
-
-    private static final String TAG = "FragExStart";
-
-    String e_type;
-    int pos;
-    FragmentManager fragmentManager;
-
-    CountDownTimer countDownTimer;
-    int timer;
-
-<<<<<<< HEAD
-=======
-    MainActivity activity;
-
-
->>>>>>> jensh
-=======
+import com.example.myteamcproject.ATask.ExInsertATask;
 import com.example.myteamcproject.Common.CommonMethod;
 import com.example.myteamcproject.MainActivity;
 import com.example.myteamcproject.R;
@@ -93,6 +53,7 @@ import java.util.UUID;
 public class FragExStart extends Fragment implements View.OnClickListener {
 
     private static final String TAG = "FragExStart";
+
     MainActivity activity;
     String e_type;
     int pos;
@@ -112,7 +73,7 @@ public class FragExStart extends Fragment implements View.OnClickListener {
     TextView tv_etitle;
     TextView tv_time;
     ImageView img_timer;
-    ImageView img_play;
+    ImageView img_play, ex_skip;
     ImageView img_pause;
     ImageView img_camera;
     ImageView img_exs;
@@ -123,7 +84,6 @@ public class FragExStart extends Fragment implements View.OnClickListener {
     String mStrDelimiter = "\n";
     char mCharDelimiter = '\n';
 
->>>>>>> ysj
     public FragExStart() {
 
     }
@@ -132,14 +92,8 @@ public class FragExStart extends Fragment implements View.OnClickListener {
     public FragExStart(FragmentManager fragmentManager) {
         this.fragmentManager = fragmentManager;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         Log.d(TAG, "FragExStart: size2 => " + explaylist.size());
 
->>>>>>> jensh
-=======
->>>>>>> ysj
     }
 
     @Nullable
@@ -147,64 +101,16 @@ public class FragExStart extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup viewGroup = (ViewGroup) inflater
                 .inflate(R.layout.frag_exs, container, false);
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-=======
-        activity = (MainActivity) getActivity();
->>>>>>> ysj
         Bundle bundle = getArguments();
         ExerciseDTO dto = null;
-            pos = bundle.getInt("pos");
-            dto = (ExerciseDTO) bundle.getSerializable("dto");
-
-        Log.d("TAG", "onCreateView: " + e_type);
-<<<<<<< HEAD
-=======
-        activity = (MainActivity) getActivity();
-
-        ExerciseDTO dto = null;
-        if(activity.mBundle != null) {
-            Bundle bundle = activity.mBundle;
+        if(bundle != null) {
             pos = bundle.getInt("pos");
             dto = (ExerciseDTO) bundle.getSerializable("dto");
             Log.d("TAG", "onCreateView: " + e_type);
-            activity.mBundle = null;
-        }
->>>>>>> jensh
-
-        // Fragment에서는 onClick을 사용할 수 없기때문에, 별도로 리스너를 달아서 클릭이벤트를 지정한다.
-        TextView tv_etitle = viewGroup.findViewById(R.id.tv_etitle);
-        TextView tv_time = viewGroup.findViewById(R.id.tv_time);
-<<<<<<< HEAD
-        ImageView img_play = viewGroup.findViewById(R.id.img_play);
-        ImageView img_pause = viewGroup.findViewById(R.id.img_pause);
-        ImageView img_exs = viewGroup.findViewById(R.id.img_exs);
-=======
-        TextView tv_count = viewGroup.findViewById(R.id.tv_count);
-
-        ImageView img_play = viewGroup.findViewById(R.id.img_play);
-        ImageView img_pause = viewGroup.findViewById(R.id.img_pause);
-        ImageView img_exs = viewGroup.findViewById(R.id.img_exs);
-
->>>>>>> jensh
-        img_play.setOnClickListener(this);
-        img_pause.setOnClickListener(this);
-
-        if(!explaylist.isEmpty()){
-            tv_etitle.setText(explaylist.get(pos).getE_name());
-<<<<<<< HEAD
-        }else{
-            tv_etitle.setText(explaylist.get(pos).getE_name());
+            bundle = null;
         }
 
-=======
-        }
-
-        Log.d(TAG, "onCreateView: explaylistSize" + explaylist.size());
-
->>>>>>> jensh
-=======
         timers = new Timer();
 
         // Fragment에서는 onClick을 사용할 수 없기때문에, 별도로 리스너를 달아서 클릭이벤트를 지정한다.
@@ -216,9 +122,13 @@ public class FragExStart extends Fragment implements View.OnClickListener {
         img_pause = viewGroup.findViewById(R.id.img_pause);
         img_exs = viewGroup.findViewById(R.id.img_exs);
         tv_count = viewGroup.findViewById(R.id.tv_count);
+        ex_skip = viewGroup.findViewById(R.id.ex_skip);
         img_play.setOnClickListener(this);
         img_pause.setOnClickListener(this);
         commonMethod = new CommonMethod();
+
+        img_play.setOnClickListener(this);
+        img_pause.setOnClickListener(this);
 
         String[] exarray = {"명상"};
 
@@ -239,112 +149,54 @@ public class FragExStart extends Fragment implements View.OnClickListener {
             tv_etitle.setText("운동제목");
         }
 
->>>>>>> ysj
+        Log.d(TAG, "onCreateView: explaylistSize" + explaylist.size());
+
         String filepath = ipConfig + "/resources/"  + dto.getE_filepath() + dto.getE_filename();
         Log.d(TAG, "setDto: " + filepath);
         Glide.with(viewGroup).load(filepath).into(img_exs);
 
-<<<<<<< HEAD
         countDownTimer = new CountDownTimer(10000, 1000){
-=======
-        countDownTimer = new CountDownTimer(30000, 1000){
->>>>>>> ysj
             public void onTick(long millisUntilFinished) {
                 int num = (int) (millisUntilFinished / 1000);
                 timer = num;
                 tv_time.setText(Integer.toString(timer));
-<<<<<<< HEAD
 
-=======
->>>>>>> ysj
             }
 
             public void onFinish() {
-
                 try{
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ysj
-                if(explaylist.get(tonext + 1) != null){
-                    Bundle bundle = new Bundle(); //번들을 통해 값 전달
-
-                    bundle.putInt("pos", pos + 1);
-                    bundle.putSerializable("dto", exlist.get(pos + 1));
-                    FragExStart fragExStart = new FragExStart();   //FragExStart 선언
-<<<<<<< HEAD
-                    fragExStart.setArguments(bundle);    //번들을 FragExStart 로 보낼 준비
-
-                    fragmentManager = getParentFragmentManager();
-                    FragmentTransaction transaction = fragmentManager.beginTransaction();
-
-                    transaction.replace(R.id.main_frag, fragExStart).setTransition(transaction.TRANSIT_FRAGMENT_OPEN);
-
-                    transaction.commit();
-                }
-=======
                     if(explaylist.get(tonext + 1) != null){
-
-                        tonext += 1;
-                        if(tonext == explaylist.size()){
-                            tonext = 0;
-                            countDownTimer.onFinish();
-                        }
-
-                        if(!explaylist.isEmpty()){
-                            tv_etitle.setText(explaylist.get(tonext).getE_name());
-                        }
-
-                        /*Bundle bundle = new Bundle(); //번들을 통해 값 전달
+                        Bundle bundle = new Bundle(); //번들을 통해 값 전달
 
                         bundle.putInt("pos", pos + 1);
                         bundle.putSerializable("dto", exlist.get(pos + 1));
                         FragExStart fragExStart = new FragExStart();   //FragExStart 선언
-                        fragExStart.setArguments(bundle);    //번들을 FragExStart 로 보낼 준비
+                        FragRest fragRest = new FragRest();
+                        fragRest.setArguments(bundle);    //번들을 FragExStart 로 보낼 준비
 
-                        fragmentManager = getParentFragmentManager();
+
                         FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        transaction.replace(R.id.main_frag, fragRest).setTransition(transaction.TRANSIT_FRAGMENT_OPEN);
 
-                        transaction.replace(R.id.main_frag, fragExStart).setTransition(transaction.TRANSIT_FRAGMENT_OPEN);
-
-                        transaction.commit();*/
-//
-//                        FragExStart fragExStart = new FragExStart(fragmentManager);
-//                        Bundle bundle = new Bundle(); //번들을 통해 값 전달
-//                        bundle.putInt("pos", tonext);
-//                        bundle.putSerializable("dto", exlist.get(tonext));
-//                        activity.setFrag(fragExStart, bundle);
-//
-//                        activity.mBundle = null;
+                        transaction.commit();
                     }
->>>>>>> jensh
-=======
-                    FragRest fragRest = new FragRest();
-                    fragRest.setArguments(bundle);    //번들을 FragExStart 로 보낼 준비
-
-
-                    FragmentTransaction transaction = fragmentManager.beginTransaction();
-
-                    transaction.replace(R.id.main_frag, fragRest).setTransition(transaction.TRANSIT_FRAGMENT_OPEN);
-
-                    transaction.commit();
-                }
->>>>>>> ysj
                 } catch (IndexOutOfBoundsException e){
                     tv_time.setText("운동 끝");
                     FragHome fraghome = new FragHome();
                     getParentFragmentManager().beginTransaction().replace(R.id.main_frag, fraghome).commit();
                 }
-<<<<<<< HEAD
-
-            }//onFinish
-        };
-
-=======
                 commonMethod.sendData("c", mOutputStream, mStrDelimiter, getContext());
                 timers.cancel();
-            }//onFinish
+            }
+
         };
+
+        ex_skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                countDownTimer.onFinish();
+            }
+        });
 
         tv_count.addTextChangedListener(new TextWatcher() {
             @Override
@@ -354,7 +206,7 @@ public class FragExStart extends Fragment implements View.OnClickListener {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                count = Integer.parseInt( ( (tv_count.getText().toString().trim() == "" ) ? "0" : tv_count.getText().toString().trim()) );
+                count = Integer.parseInt( ((tv_count.getText().toString().trim() == "" ) ? "0" : tv_count.getText().toString().trim()) );
 
                 if(count == 3){
                     commonMethod.sendData("c", mOutputStream, mStrDelimiter, getContext());
@@ -369,7 +221,6 @@ public class FragExStart extends Fragment implements View.OnClickListener {
             }
         });
 
->>>>>>> ysj
         return viewGroup;
     }
 
@@ -377,16 +228,6 @@ public class FragExStart extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.img_play:
-<<<<<<< HEAD
-                countDownTimer.start();
-                break;
-
-            case R.id.img_pause:
-                countDownTimer.cancel();
-                break;
-        }
-    }//onclick
-=======
                 if(mBluetoothAdapter == null){
                     checkBluetooth();
                 }//if
@@ -626,7 +467,4 @@ public class FragExStart extends Fragment implements View.OnClickListener {
         //workerThread.start();
         timers.schedule(timerTask, 500, 1000);
     }
-
-
->>>>>>> ysj
 }

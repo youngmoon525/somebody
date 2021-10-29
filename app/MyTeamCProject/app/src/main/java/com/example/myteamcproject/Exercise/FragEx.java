@@ -1,87 +1,33 @@
 package com.example.myteamcproject.Exercise;
 
-<<<<<<< HEAD
 import static com.example.myteamcproject.Common.CommonMethod.exlist;
 import static com.example.myteamcproject.Common.CommonMethod.explaylist;
-<<<<<<< HEAD
-=======
-import static com.example.myteamcproject.Common.CommonMethod.loginDTO;
->>>>>>> jensh
 
-=======
-import static android.app.Activity.RESULT_CANCELED;
-import static android.app.Activity.RESULT_OK;
-import static com.example.myteamcproject.Common.CommonMethod.exlist;
-import static com.example.myteamcproject.Common.CommonMethod.explaylist;
-import static com.example.myteamcproject.Common.CommonMethod.inputStream;
-import static com.example.myteamcproject.Common.CommonMethod.mOutputStream;
-import static com.example.myteamcproject.Common.CommonMethod.mBluetoothAdapter;
-
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothSocket;
-import android.content.DialogInterface;
-import android.content.Intent;
->>>>>>> ysj
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-<<<<<<< HEAD
-<<<<<<< HEAD
-import android.widget.ImageView;
-import android.widget.TextView;
-=======
->>>>>>> jensh
-=======
-import android.widget.ImageView;
-import android.widget.TextView;
->>>>>>> ysj
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-<<<<<<< HEAD
-=======
-import androidx.appcompat.app.AlertDialog;
->>>>>>> ysj
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import com.example.myteamcproject.ATask.ExInsertATask;
-import com.example.myteamcproject.ATask.ExUpdateATask;
->>>>>>> jensh
-=======
->>>>>>> ysj
 import com.example.myteamcproject.ATask.ExerciseATask;
 import com.example.myteamcproject.MainActivity;
 import com.example.myteamcproject.R;
 
 import java.util.ArrayList;
-<<<<<<< HEAD
 import java.util.concurrent.ExecutionException;
 
 public class FragEx extends Fragment implements View.OnClickListener {
-<<<<<<< HEAD
-=======
     private static final String TAG = "main:FragEx";
->>>>>>> jensh
-=======
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
-import java.util.concurrent.ExecutionException;
-
-public class FragEx extends Fragment implements View.OnClickListener {
->>>>>>> ysj
 
     RecyclerView recyclerView_ex;
     ExerciseAdapter adapter2;
@@ -89,16 +35,8 @@ public class FragEx extends Fragment implements View.OnClickListener {
     int position;
     ArrayList<ExerciseDTO> dtos;
     FragmentManager fragmentManager;
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-=======
 
->>>>>>> jensh
-=======
-    private static final String TAG = "FragEx";
-
->>>>>>> ysj
     public FragEx(){
 
     }
@@ -111,37 +49,10 @@ public class FragEx extends Fragment implements View.OnClickListener {
     // 자신이 활동하는 Activity 찾기
     MainActivity activity;
 
-<<<<<<< HEAD
-=======
-    // 사용자 정의 함수로 블루투스 활성 상태의 변경 결과를 App으로 알려줄때 식별자로 사용됨(0보다 커야함)
-
-
-
->>>>>>> ysj
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ysj
-            ViewGroup viewGroup = (ViewGroup) inflater
-                    .inflate(R.layout.frag_ex, container, false);
-
-            // Fragment에서는 onClick을 사용할 수 없기때문에, 별도로 리스너를 달아서 클릭이벤트를 지정한다.
-            Button btnStart1 = viewGroup.findViewById(R.id.btnStart1);
-            btnStart1.setOnClickListener(this);
-
-            Bundle bundle = getArguments();
-            if (bundle!=null){
-                e_type = bundle.getString("e_type");
-            }
-
-
-            Log.d("TAG", "onCreateView: " + e_type);
-<<<<<<< HEAD
-=======
         ViewGroup viewGroup = (ViewGroup) inflater
                 .inflate(R.layout.frag_ex, container, false);
 
@@ -158,9 +69,6 @@ public class FragEx extends Fragment implements View.OnClickListener {
         }
 
         Log.d("TAG", "onCreateView: " + e_type);
->>>>>>> jensh
-=======
->>>>>>> ysj
 
         activity = (MainActivity) getActivity();
 
@@ -211,35 +119,11 @@ public class FragEx extends Fragment implements View.OnClickListener {
         return viewGroup;
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     // 운동시작버튼
->>>>>>> jensh
-=======
->>>>>>> ysj
     @Override
     public void onClick(View view) {
 
         switch (view.getId()){
-<<<<<<< HEAD
-<<<<<<< HEAD
-            //frag_ex 버튼
-=======
-            //frag_ex 운동시작 버튼
->>>>>>> ysj
-            case R.id.btnStart1:
-                try {
-                    if (explaylist.size() != 0) {
-                        ExerciseDTO dto = adapter2.getItem(position);
-
-                        Bundle bundle = new Bundle(); //번들을 통해 값 전달
-                        String e_type = dto.getE_type();
-<<<<<<< HEAD
-                        //String e_filepath = "";
-                        bundle.putString("e_type", e_type);   //번들에 넘길 값 저장
-                        //bundle.putString("운동사진", e_filepath);
-=======
             //frag_ex 운동시작 버튼
             case R.id.btnStart1:
                 try {
@@ -249,7 +133,6 @@ public class FragEx extends Fragment implements View.OnClickListener {
                         Bundle bundle = new Bundle(); //번들을 통해 값 전달
                         String e_type = dto.getE_type();
                         bundle.putString("e_type", e_type);   //번들에 넘길 값 저장
->>>>>>> jensh
                         bundle.putInt("pos", position);
                         bundle.putSerializable("dto", exlist.get(position));
                         FragExStart fragExStart = new FragExStart();   //FragExStart 선언
@@ -258,14 +141,9 @@ public class FragEx extends Fragment implements View.OnClickListener {
                         fragmentManager = getParentFragmentManager();
                         FragmentTransaction transaction = fragmentManager.beginTransaction();
 
-<<<<<<< HEAD
-                        transaction.replace(R.id.main_frag, fragExStart).setTransition(transaction.TRANSIT_FRAGMENT_OPEN);
-
-                        transaction.commit();
-=======
                         transaction.replace(R.id.main_frag, fragExStart).setTransition(transaction.TRANSIT_FRAGMENT_OPEN);*/
 
-                        for(int i=0; i<explaylist.size(); i++){
+                        /*for(int i=0; i<explaylist.size(); i++){
                             Log.d(TAG, "onClick: explaylist " + i + explaylist.get(i).getE_name());
 
                             ExInsertATask insertATask = new ExInsertATask("exi", loginDTO.getId(), explaylist.get(i).getE_name());//id, e_name값;
@@ -275,7 +153,7 @@ public class FragEx extends Fragment implements View.OnClickListener {
 
                             }
 
-                        }
+                        }*/
 
                         FragExStart fragExStart = new FragExStart(fragmentManager);
                         ExerciseDTO dto = adapter2.getItem(position);
@@ -284,9 +162,10 @@ public class FragEx extends Fragment implements View.OnClickListener {
                         bundle.putString("e_type", e_type);   //번들에 넘길 값 저장
                         bundle.putInt("pos", position);
                         bundle.putSerializable("dto", exlist.get(position));
-                        activity.setFrag(fragExStart, bundle);
+                        fragExStart.setArguments(bundle);    //번들을 FragExStart 로 보낼 준비
 
-
+                        fragmentManager = getParentFragmentManager();
+                        fragmentManager.beginTransaction().replace(R.id.main_frag, fragExStart).commit();
 
                        /* ExInsertATask insertATask = new ExInsertATask("exi", loginDTO.getId(), explaylist.get(position).getE_name());//id, e_name값;
                             String e_name = "윗몸일으키기" + "팔굽혀펴기";
@@ -302,22 +181,6 @@ public class FragEx extends Fragment implements View.OnClickListener {
                             e.getStackTrace();
                         }
                         transaction.commit();*/
->>>>>>> jensh
-=======
-                        bundle.putString("e_type", e_type);   //번들에 넘길 값 저장
-                        bundle.putInt("pos", position);
-                        fragmentManager = getParentFragmentManager();
-                        bundle.putSerializable("dto", exlist.get(position));
-                        FragExStart fragExStart = new FragExStart(fragmentManager);   //FragExStart 선언
-                        fragExStart.setArguments(bundle);    //번들을 FragExStart 로 보낼 준비
-
-
-                        FragmentTransaction transaction = fragmentManager.beginTransaction();
-
-                        transaction.replace(R.id.main_frag, fragExStart).setTransition(transaction.TRANSIT_FRAGMENT_OPEN);
-
-                        transaction.commit();
->>>>>>> ysj
                         break;
 
                     }else if(adapter2.getItem(position).getE_name().equals("걷기")){
@@ -326,9 +189,7 @@ public class FragEx extends Fragment implements View.OnClickListener {
 
                         Bundle bundle = new Bundle(); //번들을 통해 값 전달
                         String e_type = dto.getE_type();
-                        //String e_filepath = "";
                         bundle.putString("e_type", e_type);   //번들에 넘길 값 저장
-                        //bundle.putString("운동사진", e_filepath);
                         bundle.putInt("pos", position);
                         bundle.putSerializable("dto", exlist.get(position));
                         FragWalk fragWalk = new FragWalk();
@@ -351,9 +212,4 @@ public class FragEx extends Fragment implements View.OnClickListener {
 
     }//onclick
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> ysj
 }

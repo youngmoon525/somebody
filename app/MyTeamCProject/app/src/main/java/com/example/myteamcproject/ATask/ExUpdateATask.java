@@ -1,6 +1,5 @@
 package com.example.myteamcproject.ATask;
 
-import static com.example.myteamcproject.Common.CommonMethod.explaylist;
 import static com.example.myteamcproject.Common.CommonMethod.ipConfig;
 
 import android.net.http.AndroidHttpClient;
@@ -29,7 +28,7 @@ import java.util.List;
 
 
 public class ExUpdateATask extends AsyncTask<Void, Void, String> {
-    private static final String TAG = "ExUpdateATask";
+    private static final String TAG = "main:ExUpdateATask";
 
     String reqC;
     int u_numb;
@@ -55,6 +54,8 @@ public class ExUpdateATask extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+
+        Log.d(TAG, "onPreExecute: n_numb" + u_numb);
     }
 
     @Override

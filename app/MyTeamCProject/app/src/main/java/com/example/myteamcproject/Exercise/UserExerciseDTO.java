@@ -13,16 +13,6 @@ public class UserExerciseDTO implements Serializable {
     String u_complete;
     String isChecked;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ysj
-    public UserExerciseDTO(){
-
-    }
-
-<<<<<<< HEAD
-=======
     public UserExerciseDTO() {
 
     }
@@ -32,9 +22,6 @@ public class UserExerciseDTO implements Serializable {
         this.e_name = e_name;
     }
 
->>>>>>> jensh
-=======
->>>>>>> ysj
     public UserExerciseDTO(int u_numb, String id, String e_name, String u_date, int e_count, int u_calorie, int u_point, String u_complete, String isChecked) {
         this.u_numb = u_numb;
         this.id = id;

@@ -181,7 +181,6 @@ public class CartAtask extends AsyncTask<Void, Void, String> {
         }
 
         // 핸들러에게 메시지를 요청
-        Log.d("main:", "readMessage: " + list.get(0).getCart_title());
 
         //완성된 list를 반환한다.
 

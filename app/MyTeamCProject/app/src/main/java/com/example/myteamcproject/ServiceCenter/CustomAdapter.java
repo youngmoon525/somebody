@@ -64,8 +64,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
                 Bundle bundle = new Bundle(); //번들을 통해 값 전달
 
                 bundle.putString("userid", id);
+                bundle.putInt("pos", position);
                 FragMyChat FragMyChat = new FragMyChat();   //FragExStart 선언
                 FragMyChat.setArguments(bundle);    //번들을 FragExStart 로 보낼 준비
+
 
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
 
